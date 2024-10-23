@@ -1,0 +1,23 @@
+{
+  "name": "cphost",
+  "version": "1.0.0",
+  "main": "index.js",
+  "workspaces": [
+    "apps/web",
+    "apps/api",
+    "apps/cms"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint"
+  },
+  "devDependencies": {
+    "turbo": "^2.2.3"
+  },
+  "packageManager": "npm@10.7.0",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
