@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plans",
+  "info": {
+    "singularName": "plan",
+    "pluralName": "plans",
+    "displayName": "Plan"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "storage": {
+      "type": "integer",
+      "required": true
+    },
+    "backup": {
+      "type": "enumeration",
+      "enum": [
+        "weekly",
+        "daily"
+      ],
+      "required": true,
+      "default": "weekly"
+    },
+    "ssl": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "monitoring": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "domain": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "transactions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transaction.transaction",
+      "mappedBy": "plan"
+    }
+  }
+}

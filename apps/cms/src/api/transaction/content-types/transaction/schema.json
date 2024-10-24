@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transactions",
+  "info": {
+    "singularName": "transaction",
+    "pluralName": "transactions",
+    "displayName": "Transaction",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "domain": {
+      "type": "string",
+      "required": true
+    },
+    "endDate": {
+      "type": "date",
+      "required": true
+    },
+    "amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "paymentMethod": {
+      "type": "string"
+    },
+    "paymentStatus": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "success",
+        "failed"
+      ],
+      "required": true,
+      "default": "pending"
+    },
+    "invoice": {
+      "type": "string",
+      "required": true
+    },
+    "hostingType": {
+      "type": "string",
+      "required": true
+    },
+    "plan": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::plan.plan",
+      "inversedBy": "transactions"
+    },
+    "template": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::template.template",
+      "inversedBy": "transactions"
+    },
+    "userId": {
+      "required": true,
+      "type": "integer"
+    }
+  }
+}
