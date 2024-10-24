@@ -590,6 +590,129 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface ApiPlanPlan extends Schema.CollectionType {
+  collectionName: 'plans';
+  info: {
+    singularName: 'plan';
+    pluralName: 'plans';
+    displayName: 'Plan';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    storage: Attribute.Integer & Attribute.Required;
+    backup: Attribute.Enumeration<['weekly', 'daily']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'weekly'>;
+    ssl: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
+    monitoring: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+    domain: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
+    price: Attribute.Decimal & Attribute.Required;
+    transactions: Attribute.Relation<
+      'api::plan.plan',
+      'oneToMany',
+      'api::transaction.transaction'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::plan.plan', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::plan.plan', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTemplateTemplate extends Schema.CollectionType {
+  collectionName: 'templates';
+  info: {
+    singularName: 'template';
+    pluralName: 'templates';
+    displayName: 'template';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    transactions: Attribute.Relation<
+      'api::template.template',
+      'oneToMany',
+      'api::transaction.transaction'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::template.template',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::template.template',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTransactionTransaction extends Schema.CollectionType {
+  collectionName: 'transactions';
+  info: {
+    singularName: 'transaction';
+    pluralName: 'transactions';
+    displayName: 'Transaction';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    domain: Attribute.String & Attribute.Required;
+    endDate: Attribute.Date & Attribute.Required;
+    amount: Attribute.Decimal & Attribute.Required;
+    paymentMethod: Attribute.String;
+    paymentStatus: Attribute.Enumeration<['pending', 'success', 'failed']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'pending'>;
+    invoice: Attribute.String & Attribute.Required;
+    hostingType: Attribute.String & Attribute.Required;
+    plan: Attribute.Relation<
+      'api::transaction.transaction',
+      'manyToOne',
+      'api::plan.plan'
+    >;
+    template: Attribute.Relation<
+      'api::transaction.transaction',
+      'manyToOne',
+      'api::template.template'
+    >;
+    userId: Attribute.Integer & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::transaction.transaction',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::transaction.transaction',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -604,6 +727,9 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'api::plan.plan': ApiPlanPlan;
+      'api::template.template': ApiTemplateTemplate;
+      'api::transaction.transaction': ApiTransactionTransaction;
     }
   }
 }
