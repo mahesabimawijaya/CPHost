@@ -683,7 +683,6 @@ export interface ApiTransactionTransaction extends Schema.CollectionType {
       Attribute.Required &
       Attribute.DefaultTo<'pending'>;
     invoice: Attribute.String & Attribute.Required;
-    hostingType: Attribute.String & Attribute.Required;
     plan: Attribute.Relation<
       'api::transaction.transaction',
       'manyToOne',

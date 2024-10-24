@@ -40,10 +40,6 @@
       "type": "string",
       "required": true
     },
-    "hostingType": {
-      "type": "string",
-      "required": true
-    },
     "plan": {
       "type": "relation",
       "relation": "manyToOne",
