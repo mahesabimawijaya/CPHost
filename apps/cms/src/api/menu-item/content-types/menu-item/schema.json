@@ -1,29 +1,28 @@
 {
   "kind": "collectionType",
-  "collectionName": "templates",
+  "collectionName": "menu_items",
   "info": {
-    "singularName": "template",
-    "pluralName": "templates",
-    "displayName": "Template",
+    "singularName": "menu-item",
+    "pluralName": "menu-items",
+    "displayName": "Menu Item",
     "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "name": {
+    "label": {
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "text",
+    "url": {
+      "type": "string",
       "required": true
     },
-    "transactions": {
+    "menu_items": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::transaction.transaction",
-      "mappedBy": "template"
+      "target": "api::menu-item.menu-item"
     }
   }
 }

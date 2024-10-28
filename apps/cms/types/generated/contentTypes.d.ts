@@ -590,9 +590,89 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface ApiMenuItemMenuItem extends Schema.CollectionType {
+  collectionName: 'menu_items';
+  info: {
+    singularName: 'menu-item';
+    pluralName: 'menu-items';
+    displayName: 'Menu Item';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    label: Attribute.String & Attribute.Required;
+    url: Attribute.String & Attribute.Required;
+    menu_items: Attribute.Relation<
+      'api::menu-item.menu-item',
+      'oneToMany',
+      'api::menu-item.menu-item'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::menu-item.menu-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::menu-item.menu-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNavbarNavbar extends Schema.SingleType {
+  collectionName: 'navbars';
+  info: {
+    singularName: 'navbar';
+    pluralName: 'navbars';
+    displayName: 'Navbar';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    logo: Attribute.Media<'images'> & Attribute.Required;
+    menu_items: Attribute.Relation<
+      'api::navbar.navbar',
+      'oneToMany',
+      'api::menu-item.menu-item'
+    >;
+    searchLogo: Attribute.Media<'images'> & Attribute.Required;
+    burgerMenuLogo: Attribute.Media<'images'> & Attribute.Required;
+    topBar: Attribute.Component<'navbar.top-bar'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::navbar.navbar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::navbar.navbar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPlanPlan extends Schema.CollectionType {
   collectionName: 'plans';
+  collectionName: 'plans';
   info: {
+    singularName: 'plan';
+    pluralName: 'plans';
+    displayName: 'Plan';
     singularName: 'plan';
     pluralName: 'plans';
     displayName: 'Plan';
@@ -632,7 +712,8 @@ export interface ApiTemplateTemplate extends Schema.CollectionType {
   info: {
     singularName: 'template';
     pluralName: 'templates';
-    displayName: 'template';
+    displayName: 'Template';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -641,6 +722,9 @@ export interface ApiTemplateTemplate extends Schema.CollectionType {
     name: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     transactions: Attribute.Relation<
+      'api::template.template',
+      'oneToMany',
+      'api::transaction.transaction'
       'api::template.template',
       'oneToMany',
       'api::transaction.transaction'
@@ -714,6 +798,7 @@ export interface ApiTransactionTransaction extends Schema.CollectionType {
 }
 
 declare module '@strapi/types' {
+declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
       'admin::permission': AdminPermission;
@@ -727,6 +812,8 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'api::menu-item.menu-item': ApiMenuItemMenuItem;
+      'api::navbar.navbar': ApiNavbarNavbar;
       'api::plan.plan': ApiPlanPlan;
       'api::template.template': ApiTemplateTemplate;
       'api::transaction.transaction': ApiTransactionTransaction;

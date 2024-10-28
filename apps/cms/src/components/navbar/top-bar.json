@@ -1,0 +1,61 @@
+{
+  "collectionName": "components_navbar_top_bars",
+  "info": {
+    "displayName": "Top Bar"
+  },
+  "options": {},
+  "attributes": {
+    "emailLogo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phoneLogo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": true
+    },
+    "promoText": {
+      "type": "string",
+      "required": true
+    },
+    "liveChatLogo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "liveChat": {
+      "type": "string",
+      "required": true
+    },
+    "loginLogo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "login": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
