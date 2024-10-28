@@ -16,7 +16,7 @@
       "required": true
     },
     "endDate": {
-      "type": "date",
+      "type": "datetime",
       "required": true
     },
     "amount": {
@@ -28,11 +28,7 @@
     },
     "paymentStatus": {
       "type": "enumeration",
-      "enum": [
-        "pending",
-        "success",
-        "failed"
-      ],
+      "enum": ["pending", "success", "failed"],
       "required": true,
       "default": "pending"
     },
@@ -52,9 +48,13 @@
       "target": "api::template.template",
       "inversedBy": "transactions"
     },
-    "userId": {
-      "required": true,
-      "type": "integer"
+    "user": {
+      "type": "json",
+      "required": true
+    },
+    "uuid": {
+      "type": "string",
+      "required": false
     }
   }
 }
