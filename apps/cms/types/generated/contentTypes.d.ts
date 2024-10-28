@@ -676,7 +676,7 @@ export interface ApiTransactionTransaction extends Schema.CollectionType {
   };
   attributes: {
     domain: Attribute.String & Attribute.Required;
-    endDate: Attribute.Date & Attribute.Required;
+    endDate: Attribute.DateTime & Attribute.Required;
     amount: Attribute.Decimal & Attribute.Required;
     paymentMethod: Attribute.String;
     paymentStatus: Attribute.Enumeration<['pending', 'success', 'failed']> &
@@ -693,7 +693,8 @@ export interface ApiTransactionTransaction extends Schema.CollectionType {
       'manyToOne',
       'api::template.template'
     >;
-    userId: Attribute.Integer & Attribute.Required;
+    user: Attribute.JSON & Attribute.Required;
+    uuid: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
