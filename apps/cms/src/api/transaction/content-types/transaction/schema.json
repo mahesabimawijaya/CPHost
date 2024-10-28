@@ -28,11 +28,7 @@
     },
     "paymentStatus": {
       "type": "enumeration",
-      "enum": [
-        "pending",
-        "success",
-        "failed"
-      ],
+      "enum": ["pending", "success", "failed"],
       "required": true,
       "default": "pending"
     },
