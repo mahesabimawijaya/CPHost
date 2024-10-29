@@ -668,11 +668,7 @@ export interface ApiNavbarNavbar extends Schema.SingleType {
 
 export interface ApiPlanPlan extends Schema.CollectionType {
   collectionName: 'plans';
-  collectionName: 'plans';
   info: {
-    singularName: 'plan';
-    pluralName: 'plans';
-    displayName: 'Plan';
     singularName: 'plan';
     pluralName: 'plans';
     displayName: 'Plan';
@@ -722,9 +718,6 @@ export interface ApiTemplateTemplate extends Schema.CollectionType {
     name: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     transactions: Attribute.Relation<
-      'api::template.template',
-      'oneToMany',
-      'api::transaction.transaction'
       'api::template.template',
       'oneToMany',
       'api::transaction.transaction'
@@ -797,7 +790,6 @@ export interface ApiTransactionTransaction extends Schema.CollectionType {
   };
 }
 
-declare module '@strapi/types' {
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
