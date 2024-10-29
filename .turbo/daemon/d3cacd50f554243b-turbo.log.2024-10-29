@@ -926,3 +926,7 @@
 2024-10-29T23:29:30.803894Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("web"), path: AnchoredSystemPathBuf("apps/web") }: FileChanged { file: AnchoredSystemPathBuf("apps/web/src/lib/cookie.ts") }}))
 2024-10-29T23:29:41.004102Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/lib/redux/auth.middleware.ts")}
 2024-10-29T23:29:41.004117Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("web"), path: AnchoredSystemPathBuf("apps/web") }: FileChanged { file: AnchoredSystemPathBuf("apps/web/src/lib/redux/auth.middleware.ts") }}))
+2024-10-29T23:30:55.103614Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/main.tsx")}
+2024-10-29T23:30:55.103635Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("web"), path: AnchoredSystemPathBuf("apps/web") }: FileChanged { file: AnchoredSystemPathBuf("apps/web/src/main.tsx") }}))
+2024-10-29T23:31:05.902566Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/App.tsx")}
+2024-10-29T23:31:05.902582Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("web"), path: AnchoredSystemPathBuf("apps/web") }: FileChanged { file: AnchoredSystemPathBuf("apps/web/src/App.tsx") }}))
