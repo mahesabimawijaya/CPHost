@@ -590,43 +590,6 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
-export interface ApiMenuItemMenuItem extends Schema.CollectionType {
-  collectionName: 'menu_items';
-  info: {
-    singularName: 'menu-item';
-    pluralName: 'menu-items';
-    displayName: 'Menu Item';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    label: Attribute.String & Attribute.Required;
-    url: Attribute.String & Attribute.Required;
-    sub_items: Attribute.Relation<
-      'api::menu-item.menu-item',
-      'oneToMany',
-      'api::sub-item.sub-item'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::menu-item.menu-item',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::menu-item.menu-item',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiNavbarNavbar extends Schema.SingleType {
   collectionName: 'navbars';
   info: {
@@ -696,42 +659,6 @@ export interface ApiPlanPlan extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::plan.plan', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::plan.plan', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiSubItemSubItem extends Schema.CollectionType {
-  collectionName: 'sub_items';
-  info: {
-    singularName: 'sub-item';
-    pluralName: 'sub-items';
-    displayName: 'Sub Item';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    label: Attribute.String & Attribute.Required;
-    url: Attribute.String & Attribute.Required;
-    menu_item: Attribute.Relation<
-      'api::sub-item.sub-item',
-      'manyToOne',
-      'api::menu-item.menu-item'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::sub-item.sub-item',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::sub-item.sub-item',
-      'oneToOne',
-      'admin::user'
-    > &
       Attribute.Private;
   };
 }
@@ -837,10 +764,8 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
-      'api::menu-item.menu-item': ApiMenuItemMenuItem;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::plan.plan': ApiPlanPlan;
-      'api::sub-item.sub-item': ApiSubItemSubItem;
       'api::template.template': ApiTemplateTemplate;
       'api::transaction.transaction': ApiTransactionTransaction;
     }
