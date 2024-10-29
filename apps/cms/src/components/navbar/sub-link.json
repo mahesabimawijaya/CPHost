@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_navbar_sub_links",
+  "info": {
+    "displayName": "Sub Link"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -590,43 +590,6 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
-export interface ApiMenuItemMenuItem extends Schema.CollectionType {
-  collectionName: 'menu_items';
-  info: {
-    singularName: 'menu-item';
-    pluralName: 'menu-items';
-    displayName: 'Menu Item';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    label: Attribute.String & Attribute.Required;
-    url: Attribute.String & Attribute.Required;
-    menu_items: Attribute.Relation<
-      'api::menu-item.menu-item',
-      'oneToMany',
-      'api::menu-item.menu-item'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::menu-item.menu-item',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::menu-item.menu-item',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiNavbarNavbar extends Schema.SingleType {
   collectionName: 'navbars';
   info: {
@@ -640,14 +603,11 @@ export interface ApiNavbarNavbar extends Schema.SingleType {
   };
   attributes: {
     logo: Attribute.Media<'images'> & Attribute.Required;
-    menu_items: Attribute.Relation<
-      'api::navbar.navbar',
-      'oneToMany',
-      'api::menu-item.menu-item'
-    >;
     searchLogo: Attribute.Media<'images'> & Attribute.Required;
     burgerMenuLogo: Attribute.Media<'images'> & Attribute.Required;
     topBar: Attribute.Component<'navbar.top-bar'> & Attribute.Required;
+    link: Attribute.Component<'navbar.link', true> & Attribute.Required;
+    darkLogo: Attribute.Media<'images'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -812,7 +772,6 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
-      'api::menu-item.menu-item': ApiMenuItemMenuItem;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::plan.plan': ApiPlanPlan;
       'api::template.template': ApiTemplateTemplate;
