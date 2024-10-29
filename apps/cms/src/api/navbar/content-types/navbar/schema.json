@@ -19,11 +19,6 @@
         "images"
       ]
     },
-    "menu_items": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::menu-item.menu-item"
-    },
     "searchLogo": {
       "type": "media",
       "multiple": false,
@@ -44,6 +39,20 @@
       "type": "component",
       "repeatable": false,
       "component": "navbar.top-bar",
+      "required": true
+    },
+    "link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navbar.link",
+      "required": true
+    },
+    "darkLogo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
       "required": true
     }
   }

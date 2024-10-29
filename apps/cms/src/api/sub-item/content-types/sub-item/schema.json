@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "menu_items",
+  "collectionName": "sub_items",
   "info": {
-    "singularName": "menu-item",
-    "pluralName": "menu-items",
-    "displayName": "Menu Item",
-    "description": ""
+    "singularName": "sub-item",
+    "pluralName": "sub-items",
+    "displayName": "Sub Item"
   },
   "options": {
     "draftAndPublish": true
@@ -19,11 +18,11 @@
       "type": "string",
       "required": true
     },
-    "sub_items": {
+    "menu_item": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::sub-item.sub-item",
-      "mappedBy": "menu_item"
+      "relation": "manyToOne",
+      "target": "api::menu-item.menu-item",
+      "inversedBy": "sub_items"
     }
   }
 }

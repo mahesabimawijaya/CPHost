@@ -604,10 +604,10 @@ export interface ApiMenuItemMenuItem extends Schema.CollectionType {
   attributes: {
     label: Attribute.String & Attribute.Required;
     url: Attribute.String & Attribute.Required;
-    menu_items: Attribute.Relation<
+    sub_items: Attribute.Relation<
       'api::menu-item.menu-item',
       'oneToMany',
-      'api::menu-item.menu-item'
+      'api::sub-item.sub-item'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -640,14 +640,11 @@ export interface ApiNavbarNavbar extends Schema.SingleType {
   };
   attributes: {
     logo: Attribute.Media<'images'> & Attribute.Required;
-    menu_items: Attribute.Relation<
-      'api::navbar.navbar',
-      'oneToMany',
-      'api::menu-item.menu-item'
-    >;
     searchLogo: Attribute.Media<'images'> & Attribute.Required;
     burgerMenuLogo: Attribute.Media<'images'> & Attribute.Required;
     topBar: Attribute.Component<'navbar.top-bar'> & Attribute.Required;
+    link: Attribute.Component<'navbar.link', true> & Attribute.Required;
+    darkLogo: Attribute.Media<'images'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -668,11 +665,7 @@ export interface ApiNavbarNavbar extends Schema.SingleType {
 
 export interface ApiPlanPlan extends Schema.CollectionType {
   collectionName: 'plans';
-  collectionName: 'plans';
   info: {
-    singularName: 'plan';
-    pluralName: 'plans';
-    displayName: 'Plan';
     singularName: 'plan';
     pluralName: 'plans';
     displayName: 'Plan';
@@ -707,6 +700,42 @@ export interface ApiPlanPlan extends Schema.CollectionType {
   };
 }
 
+export interface ApiSubItemSubItem extends Schema.CollectionType {
+  collectionName: 'sub_items';
+  info: {
+    singularName: 'sub-item';
+    pluralName: 'sub-items';
+    displayName: 'Sub Item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    label: Attribute.String & Attribute.Required;
+    url: Attribute.String & Attribute.Required;
+    menu_item: Attribute.Relation<
+      'api::sub-item.sub-item',
+      'manyToOne',
+      'api::menu-item.menu-item'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sub-item.sub-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sub-item.sub-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTemplateTemplate extends Schema.CollectionType {
   collectionName: 'templates';
   info: {
@@ -722,9 +751,6 @@ export interface ApiTemplateTemplate extends Schema.CollectionType {
     name: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     transactions: Attribute.Relation<
-      'api::template.template',
-      'oneToMany',
-      'api::transaction.transaction'
       'api::template.template',
       'oneToMany',
       'api::transaction.transaction'
@@ -798,7 +824,6 @@ export interface ApiTransactionTransaction extends Schema.CollectionType {
 }
 
 declare module '@strapi/types' {
-declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
       'admin::permission': AdminPermission;
@@ -815,6 +840,7 @@ declare module '@strapi/types' {
       'api::menu-item.menu-item': ApiMenuItemMenuItem;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::plan.plan': ApiPlanPlan;
+      'api::sub-item.sub-item': ApiSubItemSubItem;
       'api::template.template': ApiTemplateTemplate;
       'api::transaction.transaction': ApiTransactionTransaction;
     }

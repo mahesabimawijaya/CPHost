@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_navbar_links",
+  "info": {
+    "displayName": "Link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "subLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navbar.sub-link"
+    }
+  }
+}
