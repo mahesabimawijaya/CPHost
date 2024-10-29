@@ -7,7 +7,6 @@ import Loading from "../atoms/Loading";
 
 const Header = () => {
   const { data, isLoading, error } = useQuery<NavbarResponse>({ queryKey: ["navbar"], queryFn: fetchHeader });
-  console.log(data);
   const topBar = data?.data.attributes.topBar;
   const navbar = data?.data.attributes;
   if (isLoading) return <Loading />;
