@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ITopBar } from "../../types/header";
+import { ITopBar } from "../../types/Header";
 
 const TopBar = ({ topbar }: { topbar: ITopBar }) => {
   const authenticated = false; //auth logic here

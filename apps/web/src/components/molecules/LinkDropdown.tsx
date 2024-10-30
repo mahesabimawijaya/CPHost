@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { ILink } from "../../types/header";
+import { ILink } from "../../types/Header";
 
-const Dropdown = ({ link }: { link: ILink }) => {
+const LinkDropdown = ({ link }: { link: ILink }) => {
   return (
     <div className="absolute top-[65px] left-[-10px] flex flex-col bg-white shadow-2xl text-black">
       {link.subLink.map((sublink, i) => (
@@ -13,4 +13,4 @@ const Dropdown = ({ link }: { link: ILink }) => {
   );
 };
 
-export default Dropdown;
+export default LinkDropdown;

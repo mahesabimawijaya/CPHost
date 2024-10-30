@@ -1,10 +1,10 @@
-import type { Schema, Attribute } from '@strapi/strapi';
+import type { Schema, Attribute } from "@strapi/strapi";
 
 export interface NavbarTopBar extends Schema.Component {
-  collectionName: 'components_navbar_top_bars';
+  collectionName: "components_navbar_top_bars";
   info: {
-    displayName: 'Top Bar';
-    description: '';
+    displayName: "Top Bar";
+    description: "";
   };
   attributes: {
     email: Attribute.Email & Attribute.Required;
@@ -12,17 +12,17 @@ export interface NavbarTopBar extends Schema.Component {
     promoText: Attribute.String & Attribute.Required;
     liveChat: Attribute.String & Attribute.Required;
     login: Attribute.String & Attribute.Required;
-    emailLogo: Attribute.Media<'images'> & Attribute.Required;
-    phoneLogo: Attribute.Media<'images'> & Attribute.Required;
-    liveChatLogo: Attribute.Media<'images'> & Attribute.Required;
-    loginLogo: Attribute.Media<'images'> & Attribute.Required;
+    emailLogo: Attribute.Media<"images"> & Attribute.Required;
+    phoneLogo: Attribute.Media<"images"> & Attribute.Required;
+    liveChatLogo: Attribute.Media<"images"> & Attribute.Required;
+    loginLogo: Attribute.Media<"images"> & Attribute.Required;
   };
 }
 
 export interface NavbarSubLink extends Schema.Component {
-  collectionName: 'components_navbar_sub_links';
+  collectionName: "components_navbar_sub_links";
   info: {
-    displayName: 'Sub Link';
+    displayName: "Sub Link";
   };
   attributes: {
     label: Attribute.String & Attribute.Required;
@@ -31,24 +31,56 @@ export interface NavbarSubLink extends Schema.Component {
 }
 
 export interface NavbarLink extends Schema.Component {
-  collectionName: 'components_navbar_links';
+  collectionName: "components_navbar_links";
   info: {
-    displayName: 'Link';
-    description: '';
+    displayName: "Link";
+    description: "";
   };
   attributes: {
     label: Attribute.String & Attribute.Required;
     url: Attribute.String & Attribute.Required;
-    subLink: Attribute.Component<'navbar.sub-link', true>;
+    subLink: Attribute.Component<"navbar.sub-link", true>;
   };
 }
 
-declare module '@strapi/types' {
+export interface LandingPageHeroSection extends Schema.Component {
+  collectionName: "components_landing_page_hero_sections";
+  info: {
+    displayName: "Hero Section";
+    description: "";
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    getStartedButton: Attribute.String & Attribute.Required;
+    domainPricing: Attribute.Component<"components.domain-pricing", true> &
+      Attribute.Required;
+    backgroundImage: Attribute.Media<"images"> & Attribute.Required;
+    heroImageBackground: Attribute.Media<"images"> & Attribute.Required;
+    heroImage: Attribute.Media<"images"> & Attribute.Required;
+    youtubeLink: Attribute.String;
+  };
+}
+
+export interface ComponentsDomainPricing extends Schema.Component {
+  collectionName: "components_components_domain_pricings";
+  info: {
+    displayName: "Domain Pricing";
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    price: Attribute.Decimal & Attribute.Required;
+  };
+}
+
+declare module "@strapi/types" {
   export module Shared {
     export interface Components {
-      'navbar.top-bar': NavbarTopBar;
-      'navbar.sub-link': NavbarSubLink;
-      'navbar.link': NavbarLink;
+      "navbar.top-bar": NavbarTopBar;
+      "navbar.sub-link": NavbarSubLink;
+      "navbar.link": NavbarLink;
+      "landing-page.hero-section": LandingPageHeroSection;
+      "components.domain-pricing": ComponentsDomainPricing;
     }
   }
 }
