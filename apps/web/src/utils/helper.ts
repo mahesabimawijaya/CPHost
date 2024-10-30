@@ -7,3 +7,5 @@ export function toRupiah(number: number): string {
     maximumFractionDigits: 0,
   }).format(roundedNumber);
 }
+
+export const baseImageUrl = import.meta.env.VITE_BASE_CMS_IMAGE_URL;

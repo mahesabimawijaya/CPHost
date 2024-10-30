@@ -1,0 +1,52 @@
+{
+  "collectionName": "components_landing_page_about_us_sections",
+  "info": {
+    "displayName": "About Us Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "globalCustomers": {
+      "type": "integer",
+      "required": true
+    },
+    "successCase": {
+      "type": "integer",
+      "required": true
+    },
+    "largeImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "mediumImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "smallImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

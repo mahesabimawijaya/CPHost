@@ -5,7 +5,7 @@ const TopBar = ({ topbar }: { topbar: ITopBar }) => {
   const authenticated = false; //auth logic here
 
   return (
-    <div className="flex justify-center w-full bg-[#002AAC] text-white h-[52px]">
+    <div id="topbar" className="flex justify-center w-full bg-[#002AAC] text-white h-[52px]">
       <div className="flex items-center w-[1240px] font-semibold justify-between">
         <div id="topbar-left" className="flex items-center space-x-8">
           <div id="email" className="flex items-center space-x-3">

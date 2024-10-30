@@ -4,15 +4,16 @@ import PlayButton from "../atoms/PlayButton";
 import DomainPill from "../atoms/DomainPill";
 import HeroTitle from "../atoms/HeroTitle";
 import DomainInput from "../atoms/DomainInput";
+import { baseImageUrl } from "../../utils/helper";
 
 const Hero = ({ hero }: { hero: HeroSection }) => {
-  const baseImageUrl = import.meta.env.VITE_BASE_CMS_IMAGE_URL;
   const backgroundImage = baseImageUrl + hero.backgroundImage.data.attributes.url;
   const heroBackgroundImage = baseImageUrl + hero.heroImageBackground.data.attributes.url;
   const heroImage = baseImageUrl + hero.heroImage.data.attributes.url;
 
   return (
     <div
+      id="hero"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
