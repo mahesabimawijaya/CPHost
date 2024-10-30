@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchHeader } from "../../api/strapi.service";
 import TopBar from "../molecules/TopBar";
 import Navbar from "../molecules/Navbar";
-import { NavbarAttributes, ITopBar, NavbarResponse } from "../../types/header";
+import { NavbarAttributes, ITopBar, NavbarResponse } from "../../types/Header";
 import Loading from "../atoms/Loading";
 
 const Header = () => {
@@ -12,7 +12,7 @@ const Header = () => {
   if (isLoading) return <Loading />;
   if (error) throw new Error("Error fetching header");
   return (
-    <header className="bg-blue-600">
+    <header>
       <TopBar topbar={topBar as ITopBar} />
       <Navbar navbar={navbar as NavbarAttributes} />
     </header>
