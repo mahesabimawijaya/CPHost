@@ -1,0 +1,55 @@
+{
+  "collectionName": "components_landing_page_hero_sections",
+  "info": {
+    "displayName": "Hero Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "getStartedButton": {
+      "type": "string",
+      "required": true
+    },
+    "domainPricing": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.domain-pricing",
+      "required": true
+    },
+    "backgroundImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "heroImageBackground": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "heroImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "youtubeLink": {
+      "type": "string"
+    }
+  }
+}

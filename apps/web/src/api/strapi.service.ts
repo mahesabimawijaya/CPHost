@@ -8,3 +8,12 @@ export const fetchHeader = async () => {
     console.error("error fetching header : ", error);
   }
 };
+
+export const fetchLandingPage = async () => {
+  try {
+    const res = await fetchData("cms", "landing-page");
+    return res;
+  } catch (error) {
+    console.error("error fetching landing page : ", error);
+  }
+};

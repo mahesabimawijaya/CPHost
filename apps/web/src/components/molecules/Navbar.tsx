@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { NavbarAttributes } from "../../types/header";
+import { NavbarAttributes } from "../../types/Header";
 import { useEffect, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoMenu, IoSearch } from "react-icons/io5";
-import Dropdown from "./Dropdown";
+import LinkDropdown from "./LinkDropdown";
 
 const Navbar = ({ navbar }: { navbar: NavbarAttributes }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -16,7 +16,7 @@ const Navbar = ({ navbar }: { navbar: NavbarAttributes }) => {
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
-      if (offset > 50) {
+      if (offset > 52) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -29,7 +29,7 @@ const Navbar = ({ navbar }: { navbar: NavbarAttributes }) => {
   }, []);
 
   return (
-    <nav className={`${scrolled ? "text-black bg-white" : "text-white bg-transparent"} w-full flex justify-center items-center h-[90px] sticky top-0 z-10 duration-300`}>
+    <nav className={`${scrolled ? "text-black bg-white fixed top-0 shadow-2xl" : "text-white bg-transparent absolute"} w-full flex justify-center items-center h-[90px] z-10 duration-300`}>
       <div className="flex items-center w-[1240px] font-semibold justify-between">
         <img id="navbar-left" src={scrolled ? darkLogoUrl : logoUrl} className="w-[214px] h-[46px]" alt="logo" />
         <div id="navbar-right" className="flex items-center space-x-12">
@@ -52,7 +52,7 @@ const Navbar = ({ navbar }: { navbar: NavbarAttributes }) => {
                 >
                   <p className="text-lg">{link.label}</p>
                   <IoIosArrowDown />
-                  {activeIndex === i && <Dropdown link={link} />}
+                  {activeIndex === i && <LinkDropdown link={link} />}
                 </Link>
               );
             }

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_components_domain_pricings",
+  "info": {
+    "displayName": "Domain Pricing"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}
