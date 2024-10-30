@@ -58,6 +58,7 @@ export class UserService {
       });
 
       const registeredUser = await this.userRepository.save(newUser);
+      console.log(registeredUser);
 
       return response(true, 'User registered successfully!', registeredUser);
     } catch (error) {

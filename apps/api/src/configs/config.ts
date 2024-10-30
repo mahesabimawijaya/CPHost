@@ -2,7 +2,7 @@ import 'dotenv/config';
 import { CorsOptions } from 'cors';
 
 export const corsOptions: CorsOptions = {
-  origin: ['http://localhost:3000'],
+  origin: ['http://localhost:5173'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   allowedHeaders: 'Content-Type,Authorization',

@@ -1,3 +1,4 @@
+import RegisterModal from "./components/organisms/RegisterModal";
 import { TawkToChat } from "./components/TawkToChat";
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
     <>
       <div>
         <TawkToChat />
+        <RegisterModal />
       </div>
     </>
   );
