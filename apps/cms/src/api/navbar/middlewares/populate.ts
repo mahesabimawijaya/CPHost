@@ -6,7 +6,14 @@ import { Strapi } from "@strapi/strapi";
 
 const populate = {
   populate: {
+    logo: true,
+    darkLogo: true,
+    searchLogo: true,
+    burgerMenuLogo: true,
     topBar: {
+      populate: "*",
+    },
+    link: {
       populate: "*",
     },
   },
