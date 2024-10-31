@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "hosting_pages",
+  "info": {
+    "singularName": "hosting-page",
+    "pluralName": "hosting-pages",
+    "displayName": "Hosting Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "whyChooseUsSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "hosting-page.why-choose-us-section"
+    },
+    "clientFeedbackSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "hosting-page.client-feedback-section"
+    },
+    "recommendationSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "hosting-page.recommendation-section"
+    }
+  }
+}

@@ -6,7 +6,10 @@ import Loading from "../atoms/Loading";
 import Header from "../organisms/Header";
 
 const LandingPage = () => {
-  const { data, isLoading, error } = useQuery<RootObject>({ queryKey: ["landing-page"], queryFn: fetchLandingPage });
+  const { data, isLoading, error } = useQuery<RootObject>({
+    queryKey: ["landing-page"],
+    queryFn: fetchLandingPage,
+  });
   const hero = data?.data.attributes.heroSection;
   console.log(data);
   if (isLoading) return <Loading />;

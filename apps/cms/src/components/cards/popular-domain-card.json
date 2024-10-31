@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_cards_popular_domain_cards",
+  "info": {
+    "displayName": "Popular Domain Card"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "promo": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "btn": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

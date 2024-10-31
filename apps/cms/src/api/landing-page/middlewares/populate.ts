@@ -9,11 +9,15 @@ const populate = {
     heroSection: {
       populate: "*",
     },
+    whyChooseUsSection: {
+      populate: {
+        whyChooseUsCard: true,
+      },
+    },
   },
 };
 
 export default (config, { strapi }: { strapi: Strapi }) => {
-  // Add your own logic here.
   return async (ctx, next) => {
     strapi.log.info("In populate middleware.");
     ctx.query = {

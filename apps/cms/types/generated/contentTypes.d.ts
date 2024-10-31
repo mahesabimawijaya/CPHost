@@ -590,6 +590,69 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface ApiDomainPageDomainPage extends Schema.SingleType {
+  collectionName: 'domain_pages';
+  info: {
+    singularName: 'domain-page';
+    pluralName: 'domain-pages';
+    displayName: 'Domain Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::domain-page.domain-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::domain-page.domain-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHostingPageHostingPage extends Schema.SingleType {
+  collectionName: 'hosting_pages';
+  info: {
+    singularName: 'hosting-page';
+    pluralName: 'hosting-pages';
+    displayName: 'Hosting Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    whyChooseUsSection: Attribute.Component<'hosting-page.why-choose-us-section'>;
+    clientFeedbackSection: Attribute.Component<'hosting-page.client-feedback-section'>;
+    recommendationSection: Attribute.Component<'hosting-page.recommendation-section'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::hosting-page.hosting-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::hosting-page.hosting-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLandingPageLandingPage extends Schema.SingleType {
   collectionName: 'landing_pages';
   info: {
@@ -796,6 +859,8 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'api::domain-page.domain-page': ApiDomainPageDomainPage;
+      'api::hosting-page.hosting-page': ApiHostingPageHostingPage;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::plan.plan': ApiPlanPlan;

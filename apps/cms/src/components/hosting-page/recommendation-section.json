@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_hosting_page_recommendation_sections",
+  "info": {
+    "displayName": "Recommendation Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "companyTitle": {
+      "type": "string",
+      "required": true
+    },
+    "companyLogo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "companyIcon": {
+      "type": "component",
+      "repeatable": true,
+      "component": "icons.rec-company-icons"
+    }
+  }
+}

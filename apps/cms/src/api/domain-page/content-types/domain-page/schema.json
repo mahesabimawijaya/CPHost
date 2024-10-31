@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "domain_pages",
+  "info": {
+    "singularName": "domain-page",
+    "pluralName": "domain-pages",
+    "displayName": "Domain Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

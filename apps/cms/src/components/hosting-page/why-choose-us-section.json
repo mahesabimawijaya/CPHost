@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_hosting_page_why_choose_us_sections",
+  "info": {
+    "displayName": "Why Choose Us Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "whyChooseUsCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.why-choose-us-card"
+    }
+  }
+}
