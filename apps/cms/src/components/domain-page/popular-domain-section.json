@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_domain_page_popular_domain_sections",
+  "info": {
+    "displayName": "Popular Domain Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "popularDomainCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.popular-domain-card"
+    }
+  }
+}

@@ -4,14 +4,17 @@
   "info": {
     "singularName": "domain-page",
     "pluralName": "domain-pages",
-    "displayName": "Domain Page"
+    "displayName": "Domain Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "title": {
-      "type": "string"
+    "popularDomainSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "domain-page.popular-domain-section"
     }
   }
 }

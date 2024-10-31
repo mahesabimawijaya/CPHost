@@ -596,12 +596,13 @@ export interface ApiDomainPageDomainPage extends Schema.SingleType {
     singularName: 'domain-page';
     pluralName: 'domain-pages';
     displayName: 'Domain Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
+    popularDomainSection: Attribute.Component<'domain-page.popular-domain-section'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

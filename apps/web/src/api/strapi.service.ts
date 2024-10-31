@@ -25,6 +25,17 @@ export const fetchHostingPage = async () => {
     const res = await fetchData("cms", url);
     return res;
   } catch (error) {
-    console.error("error fetching hosting page : ", error);
+    console.error("error fetching hosting page: ", error);
+  }
+};
+
+export const fetchDomainPage = async () => {
+  try {
+    // TODO: api/domain-page wont respond
+    const url = `domain-page?populate=popularDomainSection.popularDomainCard.logo`;
+    const res = await fetchData("cms", url);
+    return res;
+  } catch (error) {
+    console.error("error fetching domain page: ", error);
   }
 };

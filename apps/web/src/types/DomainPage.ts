@@ -24,56 +24,28 @@ export interface IconData {
   };
 }
 
-export interface WhyChooseUsCard {
-  id: number;
-  title: string;
-  description: string;
-  icon: IconData;
-}
-
-export interface IWhyChooseUsSection {
-  id: number;
-  title: string;
-  subtitle: string;
-  whyChooseUsCard: WhyChooseUsCard[];
-}
-
-export interface IRecommendationSection {
-  id: number;
-  title: string;
-  companyTitle: string;
-  companyLogo: IconData;
-  companyIcon: CompanyIcon[];
-}
-
-export interface CompanyIcon {
-  id: number;
-  logo: IconData;
-}
-
 export interface Attributes {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  whyChooseUsSection: IWhyChooseUsSection;
-  recommendationSection: IRecommendationSection;
-  clientFeedbackSection: IClientFeedbackSection;
+  popularDomainSection: IPopularDomainSection;
 }
 
-export interface IClientFeedbackSection {
+export interface IPopularDomainSection {
   id: number;
   title: string;
   subtitle: string;
-  feedbackCard: FeedbackCard[];
+  description: string;
+  popularDomainCard: PopularDomainCard[];
 }
 
-export interface FeedbackCard {
+export interface PopularDomainCard {
   id: number;
-  review: string;
-  reviewerName: string;
-  reviewerJob: string;
-  rating: number;
-  image: IconData;
+  logo: IconData;
+  promo: string;
+  price: number;
+  description: string;
+  btn: string;
 }
 
 export interface Data {
