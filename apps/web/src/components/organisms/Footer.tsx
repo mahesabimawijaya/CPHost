@@ -11,7 +11,6 @@ const Footer = () => {
   const { data, isLoading, error } = useQuery<RootObject>({ queryKey: ["footer"], queryFn: fetchFooter });
   const backgroundImage = baseImageUrl + data?.data.attributes.backgroundImage.data.attributes.url;
   const logo = baseImageUrl + data?.data.attributes.logo.data.attributes.url;
-  console.log(data);
 
   if (isLoading) return <Loading />;
   if (error) throw new Error("Error fetching footer");

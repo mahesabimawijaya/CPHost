@@ -9,6 +9,19 @@ const populate = {
     heroSection: {
       populate: "*",
     },
+    featureSection: {
+      populate: {
+        features: {
+          populate: "image",
+        },
+      },
+    },
+    aboutUsSection: {
+      populate: "*",
+    },
+    pricingSection: {
+      populate: "*",
+    },
   },
 };
 

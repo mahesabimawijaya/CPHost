@@ -3,6 +3,12 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      colors: {
+        primary: "#384BFF",
+      },
+      width: {
+        primary: "1240px",
+      },
       animation: {
         "spin-slow": "spin-reverse 3s linear infinite",
       },

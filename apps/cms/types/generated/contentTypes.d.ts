@@ -642,6 +642,12 @@ export interface ApiLandingPageLandingPage extends Schema.SingleType {
   attributes: {
     heroSection: Attribute.Component<'landing-page.hero-section'> &
       Attribute.Required;
+    featureSection: Attribute.Component<'landing-page.feature-section'> &
+      Attribute.Required;
+    aboutUsSection: Attribute.Component<'landing-page.about-us-section'> &
+      Attribute.Required;
+    pricingSection: Attribute.Component<'landing-page.pricing-section'> &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -702,6 +708,7 @@ export interface ApiPlanPlan extends Schema.CollectionType {
     singularName: 'plan';
     pluralName: 'plans';
     displayName: 'Plan';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -723,6 +730,7 @@ export interface ApiPlanPlan extends Schema.CollectionType {
       'oneToMany',
       'api::transaction.transaction'
     >;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

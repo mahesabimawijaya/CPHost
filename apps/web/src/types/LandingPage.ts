@@ -40,6 +40,10 @@ export interface ImageData {
   attributes: ImageAttributes;
 }
 
+export interface FeatureImageData {
+  data: ImageData;
+}
+
 export interface DomainPricing {
   id: number;
   name: string;
@@ -64,11 +68,81 @@ export interface HeroSection {
   };
 }
 
+export interface IFeature {
+  id: number;
+  title: string;
+  description: string;
+  image: FeatureImageData;
+}
+
+export interface FeatureSection {
+  id: number;
+  features: IFeature[];
+}
+
+export interface AboutUsSection {
+  id: number;
+  title: string;
+  description: string;
+  globalCustomers: number;
+  successCase: number;
+  largeImage: {
+    data: ImageData;
+  };
+  mediumImage: {
+    data: ImageData;
+  };
+  smallImage: {
+    data: ImageData;
+  };
+}
+
+export interface PlanAttributes {
+  name: string;
+  description: string;
+  storage: number;
+  backup: string;
+  ssl: boolean;
+  monitoring: boolean;
+  domain: boolean;
+  price: number;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+}
+
+export interface PlanData {
+  id: number;
+  attributes: PlanAttributes;
+}
+
+export interface Plans {
+  data: PlanData[];
+}
+
+export interface Period {
+  id: number;
+  benefit: string;
+}
+
+export interface PlanSection {
+  id: number;
+  title: string;
+  period: Period[];
+  backgroundImage: {
+    data: ImageData;
+  };
+  plans: Plans;
+}
+
 export interface Attributes {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
   heroSection: HeroSection;
+  featureSection: FeatureSection;
+  aboutUsSection: AboutUsSection;
+  pricingSection: PlanSection;
 }
 
 export interface Data {

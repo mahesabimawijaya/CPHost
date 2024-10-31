@@ -16,6 +16,24 @@
       "repeatable": false,
       "component": "landing-page.hero-section",
       "required": true
+    },
+    "featureSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing-page.feature-section",
+      "required": true
+    },
+    "aboutUsSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing-page.about-us-section",
+      "required": true
+    },
+    "pricingSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing-page.pricing-section",
+      "required": true
     }
   }
 }

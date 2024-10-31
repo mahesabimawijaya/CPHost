@@ -42,18 +42,17 @@ const Navbar = ({ navbar }: { navbar: NavbarAttributes }) => {
               );
             } else {
               return (
-                <Link
+                <div
                   onMouseEnter={() => setActiveIndex(i)}
                   onMouseLeave={() => setActiveIndex(null)}
                   onClick={() => setActiveIndex(null)}
-                  to={link.url}
                   key={i}
-                  className="text-lg flex items-center space-x-2 relative py-5 hover:text-[#FFA31A] duration-300"
+                  className="text-lg flex items-center space-x-2 relative py-5 hover:text-[#FFA31A] duration-300 cursor-default"
                 >
                   <p className="text-lg">{link.label}</p>
                   <IoIosArrowDown />
                   {activeIndex === i && <LinkDropdown link={link} />}
-                </Link>
+                </div>
               );
             }
           })}
