@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_hosting_page_client_feedback_sections",
+  "info": {
+    "displayName": "Client Feedback Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "feedbackCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.client-feedback-card"
+    }
+  }
+}

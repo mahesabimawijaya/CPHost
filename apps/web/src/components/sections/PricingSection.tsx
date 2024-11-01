@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { PlanSection } from "../../types/LandingPage";
 import { baseImageUrl } from "../../utils/helper";
-import SectionTitle from "../atoms/SectionTitle";
 import PriceCard from "../molecules/PriceCard";
+import SectionTitle2 from "../atoms/SectionTitle2";
 
 const PricingSection = ({ pricingSection }: { pricingSection: PlanSection }) => {
   const [currPeriod, setCurrPeriod] = useState("Monthly");
@@ -18,7 +18,7 @@ const PricingSection = ({ pricingSection }: { pricingSection: PlanSection }) => 
       className="w-full flex justify-center items-center bg-[#F3F7FB] py-[130px]"
     >
       <div className="w-primary h-[1200px] flex flex-col items-center">
-        <SectionTitle text="Pricing Plans" />
+        <SectionTitle2 text="Pricing Plans" />
         <h1 className="text-5xl font-bold mt-5 leading-tight mb-12 w-[700px] text-center">{pricingSection.title}</h1>
         <div className="flex items-center space-x-1 font-medium rounded-full border border-gray-300 bg-white p-[6px] mb-28">
           {pricingSection.period.map((period, i) => (

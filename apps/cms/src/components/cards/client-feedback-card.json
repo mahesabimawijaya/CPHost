@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_cards_client_feedback_cards",
+  "info": {
+    "displayName": "Client Feedback Card"
+  },
+  "options": {},
+  "attributes": {
+    "review": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "reviewerName": {
+      "type": "string",
+      "required": true
+    },
+    "reviewerJob": {
+      "type": "string",
+      "required": true
+    },
+    "rating": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

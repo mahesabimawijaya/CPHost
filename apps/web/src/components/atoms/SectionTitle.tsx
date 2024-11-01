@@ -1,8 +1,13 @@
-const SectionTitle = ({ text }: { text: string }) => {
+import React from "react";
+
+interface SectionTitleProps {
+  title: string;
+}
+
+const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => {
   return (
-    <div className="flex items-center">
-      <p className="uppercase mr-3 text-primary font-medium text-lg">{text}</p>
-      <span className="bg-primary w-5 h-[2px]"></span>
+    <div>
+      <div className="text-5xl font-bold">{title}</div>
     </div>
   );
 };

@@ -10,7 +10,10 @@ import AboutUs from "../sections/AboutUs";
 import PricingSection from "../sections/PricingSection";
 
 const LandingPage = () => {
-  const { data, isLoading, error } = useQuery<RootObject>({ queryKey: ["landing-page"], queryFn: fetchLandingPage });
+  const { data, isLoading, error } = useQuery<RootObject>({
+    queryKey: ["landing-page"],
+    queryFn: fetchLandingPage,
+  });
   const hero = data?.data.attributes.heroSection;
   const features = data?.data.attributes.featureSection.features;
   const aboutUs = data?.data.attributes.aboutUsSection;
