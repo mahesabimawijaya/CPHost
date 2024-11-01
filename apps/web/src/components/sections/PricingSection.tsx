@@ -7,7 +7,6 @@ import SectionTitle2 from "../atoms/SectionTitle2";
 const PricingSection = ({ pricingSection }: { pricingSection: PlanSection }) => {
   const [currPeriod, setCurrPeriod] = useState("Monthly");
   const backgroundImage = baseImageUrl + pricingSection.backgroundImage.data.attributes.url;
-  console.log(currPeriod);
   return (
     <section
       style={{
