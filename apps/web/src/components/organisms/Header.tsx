@@ -1,16 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
-import { fetchHeader } from "../../api/strapi.service";
 import TopBar from "../molecules/TopBar";
 import Navbar from "../molecules/Navbar";
-import { NavbarAttributes, ITopBar, NavbarResponse } from "../../types/Header";
+import { NavbarAttributes, ITopBar } from "../../types/Header";
 import Loading from "../atoms/Loading";
+import { useAppSelector } from "../../lib/redux/hooks";
+import { RootState } from "../../lib/redux/store";
 
 const Header = () => {
-  const { data, isLoading, error } = useQuery<NavbarResponse>({ queryKey: ["navbar"], queryFn: fetchHeader });
-  const topBar = data?.data.attributes.topBar;
-  const navbar = data?.data.attributes;
+  const { header, error } = useAppSelector((state: RootState) => state.strapi);
 
-  if (isLoading) return <Loading />;
+  const topBar = header?.data.attributes.topBar;
+  const navbar = header?.data.attributes;
+
+  if (!header) return <Loading />;
   if (error) throw new Error("Error fetching header");
 
   return (

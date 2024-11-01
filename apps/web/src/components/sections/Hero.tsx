@@ -5,6 +5,7 @@ import DomainPill from "../atoms/DomainPill";
 import HeroTitle from "../atoms/HeroTitle";
 import DomainInput from "../atoms/DomainInput";
 import { baseImageUrl } from "../../utils/helper";
+import "./../../index.css";
 
 const Hero = ({ hero }: { hero: HeroSection }) => {
   const backgroundImage = baseImageUrl + hero.backgroundImage.data.attributes.url;

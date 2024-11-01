@@ -58,6 +58,11 @@ export interface RootObject {
   meta: object;
 }
 
+export interface DomainResponse {
+  data: Data;
+  meta: object;
+}
+
 export interface ImageFormat {
   ext: string;
   url: string;

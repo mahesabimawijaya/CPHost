@@ -1,13 +1,13 @@
 import { FaArrowRightLong, FaCheck, FaRegCircleQuestion } from "react-icons/fa6";
 import { PlanData } from "../../types/LandingPage";
-import { pricingColor, toRupiah } from "../../utils/helper";
+import { getColorClass, toRupiah } from "../../utils/helper";
 import { RxCross2 } from "react-icons/rx";
 
 const PriceCard = ({ plan, period, i }: { plan: PlanData; period: string; i: number }) => {
   return (
     <div className="w-[290px] h-[630px] flex flex-col items-center relative rounded-2xl bg-white border border-gray-300 pt-14 px-8 hover:scale-105 duration-300 cursor-help">
       <div
-        className={`bg-${pricingColor[i]} absolute text-white text-center px-4 py-2.5 top-[-24px] w-[200px] text-lg font-medium`}
+        className={`${getColorClass(i)} absolute text-white text-center px-4 py-2.5 top-[-24px] w-[200px] text-lg font-medium`}
         style={{ clipPath: "polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%)" }}
       >
         {plan.attributes.name}
