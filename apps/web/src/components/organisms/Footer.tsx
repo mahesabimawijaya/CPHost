@@ -3,21 +3,13 @@ import { baseImageUrl } from "../../utils/helper";
 import { Link } from "react-router-dom";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { FaArrowUp, FaFacebookF, FaLinkedinIn, FaPaperPlane, FaTwitter, FaYoutube } from "react-icons/fa6";
-import { useAppDispatch, useAppSelector } from "../../lib/redux/hooks";
+import { useAppSelector } from "../../lib/redux/hooks";
 import { RootState } from "../../lib/redux/store";
-import { useEffect } from "react";
-import { fetchFooter } from "../../lib/redux/strapi.slice";
 
 const Footer = () => {
-  // const { data, isLoading, error } = useQuery<RootObject>({ queryKey: ["footer"], queryFn: fetchFooter });
   const { footer, error } = useAppSelector((state: RootState) => state.strapi);
-  const dispatch = useAppDispatch();
   const backgroundImage = baseImageUrl + footer?.data.attributes.backgroundImage.data.attributes.url;
   const logo = baseImageUrl + footer?.data.attributes.logo.data.attributes.url;
-
-  useEffect(() => {
-    dispatch(fetchFooter());
-  }, [dispatch]);
 
   if (!footer) return <Loading />;
   if (error) throw new Error("Error fetching footer");
