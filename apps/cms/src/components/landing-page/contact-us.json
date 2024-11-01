@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_landing_page_contact_uses",
+  "info": {
+    "displayName": "Contact Us"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "talkToButton": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

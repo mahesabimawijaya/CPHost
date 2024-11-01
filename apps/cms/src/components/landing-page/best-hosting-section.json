@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_landing_page_best_hosting_sections",
+  "info": {
+    "displayName": "Best Hosting Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "bestHostingBenefits": {
+      "displayName": "Best Hosting Benefit",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.best-hosting-benefit",
+      "required": true
+    },
+    "pricingButton": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

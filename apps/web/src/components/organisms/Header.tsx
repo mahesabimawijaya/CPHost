@@ -9,8 +9,10 @@ const Header = () => {
   const { data, isLoading, error } = useQuery<NavbarResponse>({ queryKey: ["navbar"], queryFn: fetchHeader });
   const topBar = data?.data.attributes.topBar;
   const navbar = data?.data.attributes;
+
   if (isLoading) return <Loading />;
   if (error) throw new Error("Error fetching header");
+
   return (
     <header>
       <TopBar topbar={topBar as ITopBar} />

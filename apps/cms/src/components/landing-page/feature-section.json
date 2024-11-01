@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_landing_page_feature_sections",
+  "info": {
+    "displayName": "Feature Section"
+  },
+  "options": {},
+  "attributes": {
+    "features": {
+      "displayName": "Feature",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.feature"
+    }
+  }
+}

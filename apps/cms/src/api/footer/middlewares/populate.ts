@@ -6,20 +6,13 @@ import { Strapi } from "@strapi/strapi";
 
 const populate = {
   populate: {
-    heroSection: {
-      populate: "*",
-    },
-    featureSection: {
-      populate: {
-        features: {
-          populate: "image",
-        },
-      },
-    },
-    aboutUsSection: {
-      populate: "*",
-    },
-    pricingSection: {
+    backgroundImage: true,
+    creditCardImages: true,
+    logo: true,
+    phoneNumber: true,
+    description: true,
+    email: true,
+    link: {
       populate: "*",
     },
   },
