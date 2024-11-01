@@ -1,15 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface TeamPageTeamSection extends Schema.Component {
-  collectionName: 'components_team_page_team_sections';
-  info: {
-    displayName: 'Team Section';
-  };
-  attributes: {
-    teamCard: Attribute.Component<'card.team-card', true> & Attribute.Required;
-  };
-}
-
 export interface NavbarTopBar extends Schema.Component {
   collectionName: 'components_navbar_top_bars';
   info: {
@@ -50,6 +40,61 @@ export interface NavbarLink extends Schema.Component {
     label: Attribute.String & Attribute.Required;
     url: Attribute.String & Attribute.Required;
     subLink: Attribute.Component<'navbar.sub-link', true>;
+  };
+}
+
+export interface TeamPageTeamSection extends Schema.Component {
+  collectionName: 'components_team_page_team_sections';
+  info: {
+    displayName: 'Team Section';
+  };
+  attributes: {
+    teamCard: Attribute.Component<'card.team-card', true> & Attribute.Required;
+  };
+}
+
+export interface ComponentsFeature extends Schema.Component {
+  collectionName: 'components_components_features';
+  info: {
+    displayName: 'Feature';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface ComponentsEnumeratedList extends Schema.Component {
+  collectionName: 'components_components_enumerated_lists';
+  info: {
+    displayName: 'Enumerated List';
+  };
+  attributes: {
+    question: Attribute.String & Attribute.Required;
+    answer: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface ComponentsDomainPricing extends Schema.Component {
+  collectionName: 'components_components_domain_pricings';
+  info: {
+    displayName: 'Domain Pricing';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    price: Attribute.Decimal & Attribute.Required;
+  };
+}
+
+export interface ComponentsBestHostingBenefit extends Schema.Component {
+  collectionName: 'components_components_best_hosting_benefits';
+  info: {
+    displayName: 'Best Hosting Benefit';
+  };
+  attributes: {
+    benefit: Attribute.String & Attribute.Required;
   };
 }
 
@@ -187,51 +232,6 @@ export interface LandingPageAboutUsSection extends Schema.Component {
   };
 }
 
-export interface ComponentsFeature extends Schema.Component {
-  collectionName: 'components_components_features';
-  info: {
-    displayName: 'Feature';
-    description: '';
-  };
-  attributes: {
-    image: Attribute.Media<'images'> & Attribute.Required;
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-  };
-}
-
-export interface ComponentsEnumeratedList extends Schema.Component {
-  collectionName: 'components_components_enumerated_lists';
-  info: {
-    displayName: 'Enumerated List';
-  };
-  attributes: {
-    question: Attribute.String & Attribute.Required;
-    answer: Attribute.Text & Attribute.Required;
-  };
-}
-
-export interface ComponentsDomainPricing extends Schema.Component {
-  collectionName: 'components_components_domain_pricings';
-  info: {
-    displayName: 'Domain Pricing';
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    price: Attribute.Decimal & Attribute.Required;
-  };
-}
-
-export interface ComponentsBestHostingBenefit extends Schema.Component {
-  collectionName: 'components_components_best_hosting_benefits';
-  info: {
-    displayName: 'Best Hosting Benefit';
-  };
-  attributes: {
-    benefit: Attribute.String & Attribute.Required;
-  };
-}
-
 export interface CardTeamCard extends Schema.Component {
   collectionName: 'components_card_team_cards';
   info: {
@@ -267,10 +267,14 @@ export interface CardReviewCard extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'team-page.team-section': TeamPageTeamSection;
       'navbar.top-bar': NavbarTopBar;
       'navbar.sub-link': NavbarSubLink;
       'navbar.link': NavbarLink;
+      'team-page.team-section': TeamPageTeamSection;
+      'components.feature': ComponentsFeature;
+      'components.enumerated-list': ComponentsEnumeratedList;
+      'components.domain-pricing': ComponentsDomainPricing;
+      'components.best-hosting-benefit': ComponentsBestHostingBenefit;
       'landing-page.service-section': LandingPageServiceSection;
       'landing-page.review-section': LandingPageReviewSection;
       'landing-page.pricing-section': LandingPagePricingSection;
@@ -280,10 +284,6 @@ declare module '@strapi/types' {
       'landing-page.contact-us': LandingPageContactUs;
       'landing-page.best-hosting-section': LandingPageBestHostingSection;
       'landing-page.about-us-section': LandingPageAboutUsSection;
-      'components.feature': ComponentsFeature;
-      'components.enumerated-list': ComponentsEnumeratedList;
-      'components.domain-pricing': ComponentsDomainPricing;
-      'components.best-hosting-benefit': ComponentsBestHostingBenefit;
       'card.team-card': CardTeamCard;
       'card.review-card': CardReviewCard;
     }
