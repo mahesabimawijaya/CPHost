@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_list_domain_price_lists",
+  "info": {
+    "displayName": "Domain Price List"
+  },
+  "options": {},
+  "attributes": {
+    "domainLogo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "registerFee": {
+      "type": "decimal",
+      "required": true
+    },
+    "transferFee": {
+      "type": "decimal",
+      "required": true
+    },
+    "renewFee": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}

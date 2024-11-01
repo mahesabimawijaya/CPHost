@@ -1,34 +1,59 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Res,
+  BadRequestException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { LoginUserDto } from './dto/login-user.dto';
+import { Response } from 'express';
+import { response } from 'src/utils/response.util';
 
-@Controller('user')
+@Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.userService.create(createUserDto);
+  @Post('v1')
+  register(@Body() createUserDto: CreateUserDto) {
+    return this.userService.register(createUserDto);
   }
 
-  @Get()
-  findAll() {
-    return this.userService.findAll();
+  @Post('v2')
+  async login(@Body() loginUserDto: LoginUserDto, @Res() res: Response) {
+    return await this.userService.login(loginUserDto, res);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.userService.findOne(+id);
-  }
+  // @Post('v2')
+  // // used Response from express to set cookie
+  // async login(@Body() loginUserDto: LoginUserDto, @Res() res: Response) {
+  //   try {
+  //     const result = await this.userService.login(loginUserDto);
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.userService.update(+id, updateUserDto);
-  }
+  //     res.cookie('access_token', result.accessToken);
+  //     res.cookie('refresh_token', result.refreshToken);
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.userService.remove(+id);
-  }
+  //     const { accessToken, refreshToken, ...userInfo } = result;
+
+  //     return res.json({
+  //       success: true,
+  //       message: 'Login successful!',
+  //       data: userInfo,
+  //     });
+  //   } catch (error) {
+  //     console.error('Login error:', error);
+
+  //     return res.status(error.status || 500).json({
+  //       success: false,
+  //       message: error.message || 'An unexpected error occurred.',
+  //       data: null,
+  //     });
+  //   }
+  // }
 }

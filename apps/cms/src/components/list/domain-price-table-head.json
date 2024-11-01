@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_list_domain_price_table_heads",
+  "info": {
+    "displayName": "Domain Price Table Head"
+  },
+  "options": {},
+  "attributes": {
+    "head1": {
+      "type": "string",
+      "required": true
+    },
+    "head2": {
+      "type": "string",
+      "required": true
+    },
+    "head3": {
+      "type": "string",
+      "required": true
+    },
+    "head4": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

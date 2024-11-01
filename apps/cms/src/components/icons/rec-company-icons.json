@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_icons_rec_company_icons",
+  "info": {
+    "displayName": "Rec Company Icons"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

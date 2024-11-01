@@ -590,6 +590,37 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface ApiDomainPageDomainPage extends Schema.SingleType {
+  collectionName: 'domain_pages';
+  info: {
+    singularName: 'domain-page';
+    pluralName: 'domain-pages';
+    displayName: 'Domain Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    popularDomainSection: Attribute.Component<'domain-page.popular-domain-section'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::domain-page.domain-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::domain-page.domain-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFooterFooter extends Schema.SingleType {
   collectionName: 'footers';
   info: {
@@ -621,6 +652,39 @@ export interface ApiFooterFooter extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHostingPageHostingPage extends Schema.SingleType {
+  collectionName: 'hosting_pages';
+  info: {
+    singularName: 'hosting-page';
+    pluralName: 'hosting-pages';
+    displayName: 'Hosting Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    whyChooseUsSection: Attribute.Component<'hosting-page.why-choose-us-section'>;
+    clientFeedbackSection: Attribute.Component<'hosting-page.client-feedback-section'>;
+    recommendationSection: Attribute.Component<'hosting-page.recommendation-section'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::hosting-page.hosting-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::hosting-page.hosting-page',
       'oneToOne',
       'admin::user'
     > &
@@ -842,7 +906,9 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'api::domain-page.domain-page': ApiDomainPageDomainPage;
       'api::footer.footer': ApiFooterFooter;
+      'api::hosting-page.hosting-page': ApiHostingPageHostingPage;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::plan.plan': ApiPlanPlan;

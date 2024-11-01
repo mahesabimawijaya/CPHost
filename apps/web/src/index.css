@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+body {
+  font-family: "Jost", sans-serif;
+}
+
+.flip-icon {
+  transition: transform 0.3s;
+}
+
+.flip-icon:hover {
+  transform: scaleX(-1);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+
+  /* 100% {
+    transform: translateX(-100%);
+  } */
+}
+
+.animate-scroll {
+  display: flex;
+  animation: scroll 30s linear infinite;
+  html {
+    scroll-behavior: smooth;
+  }
 }

@@ -5,20 +5,23 @@ export default {
     extend: {
       colors: {
         primary: "#384BFF",
-      },
-      width: {
-        primary: "1240px",
-      },
-      animation: {
-        "spin-slow": "spin-reverse 3s linear infinite",
-      },
-      keyframes: {
-        "spin-reverse": {
-          from: { transform: "rotate(360deg)" },
-          to: { transform: "rotate(0deg)" },
+        secondary: "#E1E4FF",
+        third: "#F1F5FA",
+        animation: {
+          "spin-slow": "spin-reverse 3s linear infinite",
+        },
+        keyframes: {
+          "spin-reverse": {
+            from: { transform: "rotate(360deg)" },
+            to: { transform: "rotate(0deg)" },
+          },
+          primary: "#384BFF",
+        },
+        width: {
+          primary: "1240px",
         },
       },
+      plugins: [],
     },
   },
-  plugins: [],
 };
