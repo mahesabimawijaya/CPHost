@@ -27,16 +27,7 @@ export class UserController {
 
   @Post('v2')
   async login(@Body() loginUserDto: LoginUserDto, @Res() res: Response) {
-    const result = await this.userService.login(loginUserDto, res);
-
-    res.cookie('access_token', result.accessToken);
-    res.cookie('refresh_token', result.refreshToken);
-
-    return res.json({
-      success: true,
-      message: 'Login successful!',
-      // data: result.userInfo,
-    });
+    return await this.userService.login(loginUserDto, res);
   }
 
   // @Post('v2')

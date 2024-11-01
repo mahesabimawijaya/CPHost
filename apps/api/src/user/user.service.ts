@@ -120,13 +120,12 @@ export class UserService {
 
       // res.cookie('access_token', accessToken);
       // res.cookie('refresh_token', refreshToken);
-
-      return {
+      
+      return res.json({
         accessToken: encryptedAccessToken,
         refreshToken,
         success: true,
-        message: 'Login successful!',
-      };
+        message: 'Login successful!',}).status(200).cookie('access_token', accessToken).cookie('refresh_token', refreshToken)
     } catch (error) {
       if (error instanceof BadRequestException) {
         throw error;

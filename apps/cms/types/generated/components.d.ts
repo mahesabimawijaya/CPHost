@@ -1,24 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface LandingPageHeroSection extends Schema.Component {
-  collectionName: 'components_landing_page_hero_sections';
-  info: {
-    displayName: 'Hero Section';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    getStartedButton: Attribute.String & Attribute.Required;
-    domainPricing: Attribute.Component<'components.domain-pricing', true> &
-      Attribute.Required;
-    backgroundImage: Attribute.Media<'images'> & Attribute.Required;
-    heroImageBackground: Attribute.Media<'images'> & Attribute.Required;
-    heroImage: Attribute.Media<'images'> & Attribute.Required;
-    youtubeLink: Attribute.String;
-  };
-}
-
 export interface NavbarTopBar extends Schema.Component {
   collectionName: 'components_navbar_top_bars';
   info: {
@@ -62,6 +43,32 @@ export interface NavbarLink extends Schema.Component {
   };
 }
 
+export interface ListDomainPriceTableHead extends Schema.Component {
+  collectionName: 'components_list_domain_price_table_heads';
+  info: {
+    displayName: 'Domain Price Table Head';
+  };
+  attributes: {
+    head1: Attribute.String & Attribute.Required;
+    head2: Attribute.String & Attribute.Required;
+    head3: Attribute.String & Attribute.Required;
+    head4: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface ListDomainPriceList extends Schema.Component {
+  collectionName: 'components_list_domain_price_lists';
+  info: {
+    displayName: 'Domain Price List';
+  };
+  attributes: {
+    domainLogo: Attribute.Media<'images'> & Attribute.Required;
+    registerFee: Attribute.Decimal & Attribute.Required;
+    transferFee: Attribute.Decimal & Attribute.Required;
+    renewFee: Attribute.Decimal & Attribute.Required;
+  };
+}
+
 export interface IconsRecCompanyIcons extends Schema.Component {
   collectionName: 'components_icons_rec_company_icons';
   info: {
@@ -69,6 +76,55 @@ export interface IconsRecCompanyIcons extends Schema.Component {
   };
   attributes: {
     logo: Attribute.Media<'images'> & Attribute.Required;
+  };
+}
+
+export interface LandingPageHeroSection extends Schema.Component {
+  collectionName: 'components_landing_page_hero_sections';
+  info: {
+    displayName: 'Hero Section';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    getStartedButton: Attribute.String & Attribute.Required;
+    domainPricing: Attribute.Component<'components.domain-pricing', true> &
+      Attribute.Required;
+    backgroundImage: Attribute.Media<'images'> & Attribute.Required;
+    heroImageBackground: Attribute.Media<'images'> & Attribute.Required;
+    heroImage: Attribute.Media<'images'> & Attribute.Required;
+    youtubeLink: Attribute.String;
+  };
+}
+
+export interface DomainPagePopularDomainSection extends Schema.Component {
+  collectionName: 'components_domain_page_popular_domain_sections';
+  info: {
+    displayName: 'Popular Domain Section';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    popularDomainCard: Attribute.Component<'cards.popular-domain-card', true>;
+  };
+}
+
+export interface DomainPageDomainListSection extends Schema.Component {
+  collectionName: 'components_domain_page_domain_list_sections';
+  info: {
+    displayName: 'Domain List Section';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.String & Attribute.Required;
+    description: Attribute.String;
+    tableHead: Attribute.Component<'list.domain-price-table-head'> &
+      Attribute.Required;
+    tableContent: Attribute.Component<'list.domain-price-list', true> &
+      Attribute.Required;
   };
 }
 
@@ -106,19 +162,6 @@ export interface HostingPageClientFeedbackSection extends Schema.Component {
     title: Attribute.String & Attribute.Required;
     subtitle: Attribute.String & Attribute.Required;
     feedbackCard: Attribute.Component<'cards.client-feedback-card', true>;
-  };
-}
-
-export interface DomainPagePopularDomainSection extends Schema.Component {
-  collectionName: 'components_domain_page_popular_domain_sections';
-  info: {
-    displayName: 'Popular Domain Section';
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    popularDomainCard: Attribute.Component<'cards.popular-domain-card', true>;
   };
 }
 
@@ -176,15 +219,18 @@ export interface CardsClientFeedbackCard extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'landing-page.hero-section': LandingPageHeroSection;
       'navbar.top-bar': NavbarTopBar;
       'navbar.sub-link': NavbarSubLink;
       'navbar.link': NavbarLink;
+      'list.domain-price-table-head': ListDomainPriceTableHead;
+      'list.domain-price-list': ListDomainPriceList;
       'icons.rec-company-icons': IconsRecCompanyIcons;
+      'landing-page.hero-section': LandingPageHeroSection;
+      'domain-page.popular-domain-section': DomainPagePopularDomainSection;
+      'domain-page.domain-list-section': DomainPageDomainListSection;
       'hosting-page.why-choose-us-section': HostingPageWhyChooseUsSection;
       'hosting-page.recommendation-section': HostingPageRecommendationSection;
       'hosting-page.client-feedback-section': HostingPageClientFeedbackSection;
-      'domain-page.popular-domain-section': DomainPagePopularDomainSection;
       'components.domain-pricing': ComponentsDomainPricing;
       'cards.why-choose-us-card': CardsWhyChooseUsCard;
       'cards.popular-domain-card': CardsPopularDomainCard;

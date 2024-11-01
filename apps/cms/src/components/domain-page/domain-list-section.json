@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_domain_page_domain_list_sections",
+  "info": {
+    "displayName": "Domain List Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "tableHead": {
+      "type": "component",
+      "repeatable": false,
+      "component": "list.domain-price-table-head",
+      "required": true
+    },
+    "tableContent": {
+      "type": "component",
+      "repeatable": true,
+      "component": "list.domain-price-list",
+      "required": true
+    }
+  }
+}

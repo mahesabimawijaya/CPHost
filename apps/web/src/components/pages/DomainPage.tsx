@@ -4,6 +4,7 @@ import { IPopularDomainSection, RootObject } from "../../types/DomainPage";
 import Loading from "../atoms/Loading";
 import Header from "../organisms/Header";
 import PopularDomainSection from "../sections/PopularDomainSection";
+import DomainPriceListSection from "../sections/DomainPriceListSection";
 
 const DomainPage = () => {
   const { data, isLoading, error } = useQuery<RootObject>({
@@ -24,6 +25,7 @@ const DomainPage = () => {
       <PopularDomainSection
         popularDomain={popularDomain as IPopularDomainSection}
       />
+      <DomainPriceListSection />
     </>
   );
 };

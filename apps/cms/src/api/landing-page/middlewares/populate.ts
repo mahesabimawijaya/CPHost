@@ -11,7 +11,7 @@ const populate = {
     },
     whyChooseUsSection: {
       populate: {
-        whyChooseUsCard: true,
+        whyChooseUsCard: "*",
       },
     },
   },
