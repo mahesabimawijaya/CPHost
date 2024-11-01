@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_components_best_hosting_benefits",
+  "info": {
+    "displayName": "Best Hosting Benefit"
+  },
+  "options": {},
+  "attributes": {
+    "benefit": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_team_page_team_sections",
+  "info": {
+    "displayName": "Team Section"
+  },
+  "options": {},
+  "attributes": {
+    "teamCard": {
+      "displayName": "Team Card",
+      "type": "component",
+      "repeatable": true,
+      "component": "card.team-card",
+      "required": true
+    }
+  }
+}

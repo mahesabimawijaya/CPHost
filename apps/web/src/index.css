@@ -30,4 +30,7 @@ body {
 .animate-scroll {
   display: flex;
   animation: scroll 30s linear infinite;
+  html {
+    scroll-behavior: smooth;
+  }
 }

@@ -1,7 +1,13 @@
 /**
- * domain-page router
+ * hosting-page router
  */
 
-import { factories } from '@strapi/strapi';
+import { factories } from "@strapi/strapi";
 
-export default factories.createCoreRouter('api::domain-page.domain-page');
+export default factories.createCoreRouter("api::domain-page.domain-page", {
+  config: {
+    find: {
+      middlewares: ["api::domain-page.populate"],
+    },
+  },
+});

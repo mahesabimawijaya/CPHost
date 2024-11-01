@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_landing_page_faq_sections",
+  "info": {
+    "displayName": "FAQ Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "questionLists": {
+      "displayName": "Enumerated List",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.enumerated-list",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

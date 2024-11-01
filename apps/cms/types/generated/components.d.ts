@@ -1,5 +1,15 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface TeamPageTeamSection extends Schema.Component {
+  collectionName: 'components_team_page_team_sections';
+  info: {
+    displayName: 'Team Section';
+  };
+  attributes: {
+    teamCard: Attribute.Component<'card.team-card', true> & Attribute.Required;
+  };
+}
+
 export interface NavbarTopBar extends Schema.Component {
   collectionName: 'components_navbar_top_bars';
   info: {
@@ -69,13 +79,49 @@ export interface ListDomainPriceList extends Schema.Component {
   };
 }
 
-export interface IconsRecCompanyIcons extends Schema.Component {
-  collectionName: 'components_icons_rec_company_icons';
+export interface LandingPageServiceSection extends Schema.Component {
+  collectionName: 'components_landing_page_service_sections';
   info: {
-    displayName: 'Rec Company Icons';
+    displayName: 'Service Section';
   };
   attributes: {
-    logo: Attribute.Media<'images'> & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    templates: Attribute.Relation<
+      'landing-page.service-section',
+      'oneToMany',
+      'api::template.template'
+    >;
+  };
+}
+
+export interface LandingPageReviewSection extends Schema.Component {
+  collectionName: 'components_landing_page_review_sections';
+  info: {
+    displayName: 'Review Section';
+  };
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required;
+    reviewCard: Attribute.Component<'card.review-card', true>;
+  };
+}
+
+export interface LandingPagePricingSection extends Schema.Component {
+  collectionName: 'components_landing_page_pricing_sections';
+  info: {
+    displayName: 'Pricing Section';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    plans: Attribute.Relation<
+      'landing-page.pricing-section',
+      'oneToMany',
+      'api::plan.plan'
+    >;
+    backgroundImage: Attribute.Media<'images'> & Attribute.Required;
+    period: Attribute.Component<'components.best-hosting-benefit', true> &
+      Attribute.Required;
   };
 }
 
@@ -98,33 +144,82 @@ export interface LandingPageHeroSection extends Schema.Component {
   };
 }
 
-export interface DomainPagePopularDomainSection extends Schema.Component {
-  collectionName: 'components_domain_page_popular_domain_sections';
+export interface LandingPageFeatureSection extends Schema.Component {
+  collectionName: 'components_landing_page_feature_sections';
   info: {
-    displayName: 'Popular Domain Section';
+    displayName: 'Feature Section';
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    popularDomainCard: Attribute.Component<'cards.popular-domain-card', true>;
+    features: Attribute.Component<'components.feature', true>;
   };
 }
 
-export interface DomainPageDomainListSection extends Schema.Component {
-  collectionName: 'components_domain_page_domain_list_sections';
+export interface LandingPageFaqSection extends Schema.Component {
+  collectionName: 'components_landing_page_faq_sections';
   info: {
-    displayName: 'Domain List Section';
-    description: '';
+    displayName: 'FAQ Section';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.String & Attribute.Required;
-    description: Attribute.String;
-    tableHead: Attribute.Component<'list.domain-price-table-head'> &
+    questionLists: Attribute.Component<'components.enumerated-list', true> &
       Attribute.Required;
-    tableContent: Attribute.Component<'list.domain-price-list', true> &
+    image: Attribute.Media<'images'> & Attribute.Required;
+  };
+}
+
+export interface LandingPageContactUs extends Schema.Component {
+  collectionName: 'components_landing_page_contact_uses';
+  info: {
+    displayName: 'Contact Us';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    talkToButton: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface LandingPageBestHostingSection extends Schema.Component {
+  collectionName: 'components_landing_page_best_hosting_sections';
+  info: {
+    displayName: 'Best Hosting Section';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    bestHostingBenefits: Attribute.Component<
+      'components.best-hosting-benefit',
+      true
+    > &
       Attribute.Required;
+    pricingButton: Attribute.String & Attribute.Required;
+    image: Attribute.Media<'images'> & Attribute.Required;
+  };
+}
+
+export interface LandingPageAboutUsSection extends Schema.Component {
+  collectionName: 'components_landing_page_about_us_sections';
+  info: {
+    displayName: 'About Us Section';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    globalCustomers: Attribute.Integer & Attribute.Required;
+    successCase: Attribute.Integer & Attribute.Required;
+    largeImage: Attribute.Media<'images'> & Attribute.Required;
+    mediumImage: Attribute.Media<'images'> & Attribute.Required;
+    smallImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required;
+  };
+}
+
+export interface IconsRecCompanyIcons extends Schema.Component {
+  collectionName: 'components_icons_rec_company_icons';
+  info: {
+    displayName: 'Rec Company Icons';
+  };
+  attributes: {
+    logo: Attribute.Media<'images'> & Attribute.Required;
   };
 }
 
@@ -165,6 +260,60 @@ export interface HostingPageClientFeedbackSection extends Schema.Component {
   };
 }
 
+export interface DomainPagePopularDomainSection extends Schema.Component {
+  collectionName: 'components_domain_page_popular_domain_sections';
+  info: {
+    displayName: 'Popular Domain Section';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    popularDomainCard: Attribute.Component<'cards.popular-domain-card', true>;
+  };
+}
+
+export interface DomainPageDomainListSection extends Schema.Component {
+  collectionName: 'components_domain_page_domain_list_sections';
+  info: {
+    displayName: 'Domain List Section';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.String & Attribute.Required;
+    description: Attribute.String;
+    tableHead: Attribute.Component<'list.domain-price-table-head'> &
+      Attribute.Required;
+    tableContent: Attribute.Component<'list.domain-price-list', true> &
+      Attribute.Required;
+  };
+}
+
+export interface ComponentsFeature extends Schema.Component {
+  collectionName: 'components_components_features';
+  info: {
+    displayName: 'Feature';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface ComponentsEnumeratedList extends Schema.Component {
+  collectionName: 'components_components_enumerated_lists';
+  info: {
+    displayName: 'Enumerated List';
+  };
+  attributes: {
+    question: Attribute.String & Attribute.Required;
+    answer: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface ComponentsDomainPricing extends Schema.Component {
   collectionName: 'components_components_domain_pricings';
   info: {
@@ -173,6 +322,16 @@ export interface ComponentsDomainPricing extends Schema.Component {
   attributes: {
     name: Attribute.String & Attribute.Required;
     price: Attribute.Decimal & Attribute.Required;
+  };
+}
+
+export interface ComponentsBestHostingBenefit extends Schema.Component {
+  collectionName: 'components_components_best_hosting_benefits';
+  info: {
+    displayName: 'Best Hosting Benefit';
+  };
+  attributes: {
+    benefit: Attribute.String & Attribute.Required;
   };
 }
 
@@ -216,25 +375,71 @@ export interface CardsClientFeedbackCard extends Schema.Component {
   };
 }
 
+export interface CardTeamCard extends Schema.Component {
+  collectionName: 'components_card_team_cards';
+  info: {
+    displayName: 'Team Card';
+  };
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+    profession: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface CardReviewCard extends Schema.Component {
+  collectionName: 'components_card_review_cards';
+  info: {
+    displayName: 'Review Card';
+  };
+  attributes: {
+    reviewText: Attribute.Text & Attribute.Required;
+    user: Attribute.String & Attribute.Required;
+    profession: Attribute.String & Attribute.Required;
+    rating: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 5;
+        },
+        number
+      >;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'team-page.team-section': TeamPageTeamSection;
       'navbar.top-bar': NavbarTopBar;
       'navbar.sub-link': NavbarSubLink;
       'navbar.link': NavbarLink;
       'list.domain-price-table-head': ListDomainPriceTableHead;
       'list.domain-price-list': ListDomainPriceList;
-      'icons.rec-company-icons': IconsRecCompanyIcons;
+      'landing-page.service-section': LandingPageServiceSection;
+      'landing-page.review-section': LandingPageReviewSection;
+      'landing-page.pricing-section': LandingPagePricingSection;
       'landing-page.hero-section': LandingPageHeroSection;
-      'domain-page.popular-domain-section': DomainPagePopularDomainSection;
-      'domain-page.domain-list-section': DomainPageDomainListSection;
+      'landing-page.feature-section': LandingPageFeatureSection;
+      'landing-page.faq-section': LandingPageFaqSection;
+      'landing-page.contact-us': LandingPageContactUs;
+      'landing-page.best-hosting-section': LandingPageBestHostingSection;
+      'landing-page.about-us-section': LandingPageAboutUsSection;
+      'icons.rec-company-icons': IconsRecCompanyIcons;
       'hosting-page.why-choose-us-section': HostingPageWhyChooseUsSection;
       'hosting-page.recommendation-section': HostingPageRecommendationSection;
       'hosting-page.client-feedback-section': HostingPageClientFeedbackSection;
+      'domain-page.popular-domain-section': DomainPagePopularDomainSection;
+      'domain-page.domain-list-section': DomainPageDomainListSection;
+      'components.feature': ComponentsFeature;
+      'components.enumerated-list': ComponentsEnumeratedList;
       'components.domain-pricing': ComponentsDomainPricing;
+      'components.best-hosting-benefit': ComponentsBestHostingBenefit;
       'cards.why-choose-us-card': CardsWhyChooseUsCard;
       'cards.popular-domain-card': CardsPopularDomainCard;
       'cards.client-feedback-card': CardsClientFeedbackCard;
+      'card.team-card': CardTeamCard;
+      'card.review-card': CardReviewCard;
     }
   }
 }

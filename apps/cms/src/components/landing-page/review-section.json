@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_landing_page_review_sections",
+  "info": {
+    "displayName": "Review Section"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "reviewCard": {
+      "displayName": "Review Card",
+      "type": "component",
+      "repeatable": true,
+      "component": "card.review-card"
+    }
+  }
+}

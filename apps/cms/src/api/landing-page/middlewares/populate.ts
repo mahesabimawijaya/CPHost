@@ -9,10 +9,18 @@ const populate = {
     heroSection: {
       populate: "*",
     },
-    whyChooseUsSection: {
+    featureSection: {
       populate: {
-        whyChooseUsCard: "*",
+        features: {
+          populate: "image",
+        },
       },
+    },
+    aboutUsSection: {
+      populate: "*",
+    },
+    pricingSection: {
+      populate: "*",
     },
   },
 };

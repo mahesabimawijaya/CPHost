@@ -621,6 +621,44 @@ export interface ApiDomainPageDomainPage extends Schema.SingleType {
   };
 }
 
+export interface ApiFooterFooter extends Schema.SingleType {
+  collectionName: 'footers';
+  info: {
+    singularName: 'footer';
+    pluralName: 'footers';
+    displayName: 'Footer';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    logo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    phoneNumber: Attribute.String & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    link: Attribute.Component<'navbar.link', true> & Attribute.Required;
+    creditCardImages: Attribute.Media<'images', true> & Attribute.Required;
+    backgroundImage: Attribute.Media<'images'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHostingPageHostingPage extends Schema.SingleType {
   collectionName: 'hosting_pages';
   info: {
@@ -667,6 +705,12 @@ export interface ApiLandingPageLandingPage extends Schema.SingleType {
   };
   attributes: {
     heroSection: Attribute.Component<'landing-page.hero-section'> &
+      Attribute.Required;
+    featureSection: Attribute.Component<'landing-page.feature-section'> &
+      Attribute.Required;
+    aboutUsSection: Attribute.Component<'landing-page.about-us-section'> &
+      Attribute.Required;
+    pricingSection: Attribute.Component<'landing-page.pricing-section'> &
       Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -728,6 +772,7 @@ export interface ApiPlanPlan extends Schema.CollectionType {
     singularName: 'plan';
     pluralName: 'plans';
     displayName: 'Plan';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -749,6 +794,7 @@ export interface ApiPlanPlan extends Schema.CollectionType {
       'oneToMany',
       'api::transaction.transaction'
     >;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -861,6 +907,7 @@ declare module '@strapi/types' {
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'api::domain-page.domain-page': ApiDomainPageDomainPage;
+      'api::footer.footer': ApiFooterFooter;
       'api::hosting-page.hosting-page': ApiHostingPageHostingPage;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::navbar.navbar': ApiNavbarNavbar;

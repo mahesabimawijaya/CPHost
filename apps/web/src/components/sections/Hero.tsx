@@ -4,21 +4,22 @@ import PlayButton from "../atoms/PlayButton";
 import DomainPill from "../atoms/DomainPill";
 import HeroTitle from "../atoms/HeroTitle";
 import DomainInput from "../atoms/DomainInput";
+import { baseImageUrl } from "../../utils/helper";
 
 const Hero = ({ hero }: { hero: HeroSection }) => {
-  const baseImageUrl = import.meta.env.VITE_BASE_CMS_IMAGE_URL;
   const backgroundImage = baseImageUrl + hero.backgroundImage.data.attributes.url;
   const heroBackgroundImage = baseImageUrl + hero.heroImageBackground.data.attributes.url;
   const heroImage = baseImageUrl + hero.heroImage.data.attributes.url;
 
   return (
-    <div
+    <section
+      id="hero"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      className="w-full pt-[90px] h-[1000px] flex items-center justify-center text-white"
+      className="w-full pt-[90px] h-[1074px] pb-[200px] flex items-center justify-center text-white"
     >
       <div className="w-[1240px] flex items-center justify-between">
         <div id="hero-left" className="flex flex-col w-[590px] items-start">
@@ -43,7 +44,7 @@ const Hero = ({ hero }: { hero: HeroSection }) => {
           <img src={heroImage} alt="" className="absolute top-[-50px] left-4" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "plan",
     "pluralName": "plans",
-    "displayName": "Plan"
+    "displayName": "Plan",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -51,6 +52,9 @@
       "relation": "oneToMany",
       "target": "api::transaction.transaction",
       "mappedBy": "plan"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

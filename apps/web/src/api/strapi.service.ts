@@ -9,6 +9,15 @@ export const fetchHeader = async () => {
   }
 };
 
+export const fetchFooter = async () => {
+  try {
+    const res = await fetchData("cms", "footer");
+    return res;
+  } catch (error) {
+    console.error("error fetching footer : ", error);
+  }
+};
+
 export const fetchLandingPage = async () => {
   try {
     const res = await fetchData("cms", "landing-page");

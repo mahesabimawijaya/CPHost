@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#2A2BFF",
+        primary: "#384BFF",
         secondary: "#E1E4FF",
         third: "#F1F5FA",
         animation: {
@@ -15,9 +15,13 @@ export default {
             from: { transform: "rotate(360deg)" },
             to: { transform: "rotate(0deg)" },
           },
+          primary: "#384BFF",
+        },
+        width: {
+          primary: "1240px",
         },
       },
+      plugins: [],
     },
-    plugins: [],
   },
 };
