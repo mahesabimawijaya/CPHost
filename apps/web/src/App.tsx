@@ -4,7 +4,6 @@ import { Route, Routes } from "react-router-dom";
 import LandingPage from "./components/pages/LandingPage";
 import HostingPage from "./components/pages/HostingPage";
 import DomainPage from "./components/pages/DomainPage";
-import RegisterModal from "./components/organisms/RegisterModal";
 
 function App() {
   return (

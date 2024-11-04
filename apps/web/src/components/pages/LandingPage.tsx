@@ -1,20 +1,30 @@
 import Hero from "../sections/Hero";
-import { AboutUsSection, HeroSection, IFeature, PlanSection } from "../../types/LandingPage";
+import {
+  AboutUsSection,
+  HeroSection,
+  IFeature,
+  PlanSection,
+  ITemplateSection,
+} from "../../types/LandingPage";
 import Loading from "../atoms/Loading";
 import Header from "../organisms/Header";
 import Footer from "../organisms/Footer";
 import Feature from "../sections/Feature";
 import AboutUs from "../sections/AboutUs";
 import PricingSection from "../sections/PricingSection";
+import TemplateSection from "../sections/TemplateSection";
 import { useAppSelector } from "../../lib/redux/hooks";
 import { RootState } from "../../lib/redux/store";
 
 const LandingPage = () => {
-  const { landingPage, error } = useAppSelector((state: RootState) => state.strapi);
+  const { landingPage, error } = useAppSelector(
+    (state: RootState) => state.strapi
+  );
   const hero = landingPage?.data.attributes.heroSection;
   const features = landingPage?.data.attributes.featureSection.features;
   const aboutUs = landingPage?.data.attributes.aboutUsSection;
   const pricing = landingPage?.data.attributes.pricingSection;
+  const template = landingPage?.data.attributes.templateSection;
 
   if (!landingPage) return <Loading />;
   if (error) throw new Error("Error fetching header");
@@ -26,6 +36,7 @@ const LandingPage = () => {
       <Feature features={features as IFeature[]} />
       <AboutUs aboutUs={aboutUs as AboutUsSection} />
       <PricingSection pricingSection={pricing as PlanSection} />
+      <TemplateSection templateSection={template as ITemplateSection} />
       <Footer />
     </>
   );

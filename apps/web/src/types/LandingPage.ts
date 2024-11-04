@@ -135,6 +135,42 @@ export interface PlanSection {
   plans: Plans;
 }
 
+export interface ButtonData {
+  id: number;
+  label: string;
+  url: string;
+}
+
+export interface TemplateAttributes {
+  name: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  transactions: {
+    data: any[];
+  };
+  icon: {
+    data: ImageData;
+  };
+  btn: ButtonData;
+}
+
+export interface TemplateData {
+  id: number;
+  attributes: TemplateAttributes;
+}
+
+export interface ITemplateSection {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  templates: {
+    data: TemplateData[];
+  };
+}
+
 export interface Attributes {
   createdAt: string;
   updatedAt: string;
@@ -143,6 +179,7 @@ export interface Attributes {
   featureSection: FeatureSection;
   aboutUsSection: AboutUsSection;
   pricingSection: PlanSection;
+  templateSection: ITemplateSection;
 }
 
 export interface Data {
