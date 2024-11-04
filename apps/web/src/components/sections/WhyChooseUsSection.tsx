@@ -2,6 +2,7 @@ import WhyChooseUsCard from "../molecules/WhyChooseUsCard";
 import { IWhyChooseUsSection } from "../../types/HostingPage";
 import SectionSubTitle from "../atoms/SectionSubTitle";
 import SectionTitle from "../atoms/SectionTitle";
+import StepperPill from "../atoms/StepperPill";
 
 interface Props {
   whyChooseUs: IWhyChooseUsSection;
@@ -9,6 +10,7 @@ interface Props {
 
 const WhyChooseUsSection: React.FC<Props> = ({ whyChooseUs }) => {
   const baseImageUrl = import.meta.env.VITE_BASE_CMS_IMAGE_URL;
+  const steps = ["Step 1", "Step 2", "Step 3", "Step 4"];
 
   return (
     <section className="flex flex-col items-center gap-16 w-screen mx-auto py-20">
@@ -16,6 +18,10 @@ const WhyChooseUsSection: React.FC<Props> = ({ whyChooseUs }) => {
       <div className="flex-col items-center flex gap-4">
         <SectionSubTitle subtitle={whyChooseUs.subtitle} />
         <SectionTitle title={whyChooseUs.title} />
+      </div>
+
+      <div>
+        <StepperPill steps={steps} currentStep={1} />
       </div>
 
       {/* CARD */}

@@ -603,6 +603,7 @@ export interface ApiDomainPageDomainPage extends Schema.SingleType {
   };
   attributes: {
     popularDomainSection: Attribute.Component<'domain-page.popular-domain-section'>;
+    domainPriceListSection: Attribute.Component<'domain-page.domain-list-section'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

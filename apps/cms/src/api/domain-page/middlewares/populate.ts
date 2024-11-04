@@ -13,6 +13,14 @@ const populate = {
         },
       },
     },
+    domainPriceListSection: {
+      populate: {
+        tableHead: "*",
+        tableContent: {
+          populate: "*",
+        },
+      },
+    },
   },
 };
 

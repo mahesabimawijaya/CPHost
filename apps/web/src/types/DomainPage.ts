@@ -29,6 +29,7 @@ export interface Attributes {
   updatedAt: string;
   publishedAt: string;
   popularDomainSection: IPopularDomainSection;
+  domainPriceListSection: IDomainPriceListSection;
 }
 
 export interface IPopularDomainSection {
@@ -46,6 +47,31 @@ export interface PopularDomainCard {
   price: number;
   description: string;
   btn: string;
+}
+
+export interface IDomainPriceListSection {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  tableHead: TableHead;
+  tableContent: TableContent;
+}
+
+export interface TableHead {
+  id: number;
+  head1: string;
+  head2: string;
+  head3: string;
+  head4: string;
+}
+
+export interface TableContent {
+  id: number;
+  registerFee: number;
+  transferFee: number;
+  renewFee: number;
+  domainLogo: IconData;
 }
 
 export interface Data {

@@ -1,4 +1,5 @@
 import { IPopularDomainSection } from "../../types/DomainPage";
+import { baseImageUrl } from "../../utils/helper";
 import SectionDesc from "../atoms/SectionDesc";
 import SectionSubTitleThin from "../atoms/SectionSubtitleThin";
 import SectionTitle from "../atoms/SectionTitle";
@@ -9,8 +10,6 @@ function PopularDomainSection({
 }: {
   popularDomain: IPopularDomainSection;
 }) {
-  const baseImageUrl = import.meta.env.VITE_BASE_CMS_IMAGE_URL;
-
   return (
     <section className="flex flex-col items-center gap-4 w-screen mx-auto py-20">
       <SectionSubTitleThin subtitle={popularDomain.subtitle} />
