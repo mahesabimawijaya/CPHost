@@ -26,7 +26,7 @@ const populate = {
     templateSection: {
       populate: {
         templates: {
-          populate: "icon",
+          populate: "*",
         },
       },
     },

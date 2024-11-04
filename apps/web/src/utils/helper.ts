@@ -29,4 +29,7 @@ export function toRupiahVanilla(number: number): string {
 
 export const baseImageUrl = import.meta.env.VITE_BASE_CMS_IMAGE_URL;
 
-export const pricingColor = ["primary", "purple-600", "yellow-400", "red-600"];
+export const getColorClass = (index: number) => {
+  const colors = ["bg-primary", "bg-purple-600", "bg-yellow-400", "bg-red-600"];
+  return colors[index] || "";
+};
