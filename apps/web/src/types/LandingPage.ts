@@ -145,6 +145,42 @@ export interface BestHosting {
   bestHostingBenefits: BestHostingBenefits;
 }
 
+export interface ButtonData {
+  id: number;
+  label: string;
+  url: string;
+}
+
+export interface TemplateAttributes {
+  name: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  transactions: {
+    data: unknown[];
+  };
+  icon: {
+    data: ImageData;
+  };
+  btn: ButtonData;
+}
+
+export interface TemplateData {
+  id: number;
+  attributes: TemplateAttributes;
+}
+
+export interface ITemplateSection {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  templates: {
+    data: TemplateData[];
+  };
+}
+
 export interface BestHostingBenefits {
   id: number;
   benefit: string;
@@ -159,6 +195,7 @@ export interface Attributes {
   aboutUsSection: AboutUsSection;
   pricingSection: PlanSection;
   bestHostingSection: BestHosting;
+  templateSection: ITemplateSection;
 }
 
 export interface Data {

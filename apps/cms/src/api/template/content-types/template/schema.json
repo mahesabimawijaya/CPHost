@@ -24,6 +24,19 @@
       "relation": "oneToMany",
       "target": "api::transaction.transaction",
       "mappedBy": "template"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "btn": {
+      "type": "component",
+      "repeatable": false,
+      "component": "navbar.link"
     }
   }
 }

@@ -35,6 +35,11 @@
       "component": "landing-page.pricing-section",
       "required": true
     },
+    "templateSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing-page.template-section"
+    },
     "bestHostingSection": {
       "type": "component",
       "repeatable": false,

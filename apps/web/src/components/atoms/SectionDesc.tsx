@@ -7,7 +7,9 @@ interface SectionDescProps {
 const SectionDesc: React.FC<SectionDescProps> = ({ desc }) => {
   return (
     <div>
-      <div className="text-[#354062] py-4">{desc}</div>
+      <div className="text-[#354062] py-4 w-[500px] leading-loose text-center">
+        {desc}
+      </div>
     </div>
   );
 };
