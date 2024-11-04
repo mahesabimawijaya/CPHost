@@ -10,32 +10,6 @@ export interface TeamPageTeamSection extends Schema.Component {
   };
 }
 
-export interface ListDomainPriceTableHead extends Schema.Component {
-  collectionName: 'components_list_domain_price_table_heads';
-  info: {
-    displayName: 'Domain Price Table Head';
-  };
-  attributes: {
-    head1: Attribute.String & Attribute.Required;
-    head2: Attribute.String & Attribute.Required;
-    head3: Attribute.String & Attribute.Required;
-    head4: Attribute.String & Attribute.Required;
-  };
-}
-
-export interface ListDomainPriceList extends Schema.Component {
-  collectionName: 'components_list_domain_price_lists';
-  info: {
-    displayName: 'Domain Price List';
-  };
-  attributes: {
-    domainLogo: Attribute.Media<'images'> & Attribute.Required;
-    registerFee: Attribute.Decimal & Attribute.Required;
-    transferFee: Attribute.Decimal & Attribute.Required;
-    renewFee: Attribute.Decimal & Attribute.Required;
-  };
-}
-
 export interface NavbarTopBar extends Schema.Component {
   collectionName: 'components_navbar_top_bars';
   info: {
@@ -76,6 +50,32 @@ export interface NavbarLink extends Schema.Component {
     label: Attribute.String & Attribute.Required;
     url: Attribute.String & Attribute.Required;
     subLink: Attribute.Component<'navbar.sub-link', true>;
+  };
+}
+
+export interface ListDomainPriceTableHead extends Schema.Component {
+  collectionName: 'components_list_domain_price_table_heads';
+  info: {
+    displayName: 'Domain Price Table Head';
+  };
+  attributes: {
+    head1: Attribute.String & Attribute.Required;
+    head2: Attribute.String & Attribute.Required;
+    head3: Attribute.String & Attribute.Required;
+    head4: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface ListDomainPriceList extends Schema.Component {
+  collectionName: 'components_list_domain_price_lists';
+  info: {
+    displayName: 'Domain Price List';
+  };
+  attributes: {
+    domainLogo: Attribute.Media<'images'> & Attribute.Required;
+    registerFee: Attribute.Decimal & Attribute.Required;
+    transferFee: Attribute.Decimal & Attribute.Required;
+    renewFee: Attribute.Decimal & Attribute.Required;
   };
 }
 
@@ -440,11 +440,11 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'team-page.team-section': TeamPageTeamSection;
-      'list.domain-price-table-head': ListDomainPriceTableHead;
-      'list.domain-price-list': ListDomainPriceList;
       'navbar.top-bar': NavbarTopBar;
       'navbar.sub-link': NavbarSubLink;
       'navbar.link': NavbarLink;
+      'list.domain-price-table-head': ListDomainPriceTableHead;
+      'list.domain-price-list': ListDomainPriceList;
       'landing-page.template-section': LandingPageTemplateSection;
       'landing-page.service-section': LandingPageServiceSection;
       'landing-page.review-section': LandingPageReviewSection;
