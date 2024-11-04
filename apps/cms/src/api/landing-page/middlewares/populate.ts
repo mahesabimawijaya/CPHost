@@ -3,6 +3,7 @@
  */
 
 import { Strapi } from "@strapi/strapi";
+import template from "../../template/controllers/template";
 
 const populate = {
   populate: {
@@ -21,6 +22,13 @@ const populate = {
     },
     pricingSection: {
       populate: "*",
+    },
+    templateSection: {
+      populate: {
+        templates: {
+          populate: "icon",
+        },
+      },
     },
   },
 };

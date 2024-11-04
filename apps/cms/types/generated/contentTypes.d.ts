@@ -712,6 +712,7 @@ export interface ApiLandingPageLandingPage extends Schema.SingleType {
       Attribute.Required;
     pricingSection: Attribute.Component<'landing-page.pricing-section'> &
       Attribute.Required;
+    templateSection: Attribute.Component<'landing-page.template-section'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -824,6 +825,8 @@ export interface ApiTemplateTemplate extends Schema.CollectionType {
       'oneToMany',
       'api::transaction.transaction'
     >;
+    icon: Attribute.Media<'images'> & Attribute.Required;
+    btn: Attribute.Component<'navbar.link'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

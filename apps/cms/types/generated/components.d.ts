@@ -79,6 +79,23 @@ export interface ListDomainPriceList extends Schema.Component {
   };
 }
 
+export interface LandingPageTemplateSection extends Schema.Component {
+  collectionName: 'components_landing_page_template_sections';
+  info: {
+    displayName: 'Template Section';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    templates: Attribute.Relation<
+      'landing-page.template-section',
+      'oneToMany',
+      'api::template.template'
+    >;
+  };
+}
+
 export interface LandingPageServiceSection extends Schema.Component {
   collectionName: 'components_landing_page_service_sections';
   info: {
@@ -335,6 +352,50 @@ export interface ComponentsBestHostingBenefit extends Schema.Component {
   };
 }
 
+export interface CardTemplateCard extends Schema.Component {
+  collectionName: 'components_card_template_cards';
+  info: {
+    displayName: 'Template Card';
+  };
+  attributes: {
+    icon: Attribute.Media<'images'> & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface CardTeamCard extends Schema.Component {
+  collectionName: 'components_card_team_cards';
+  info: {
+    displayName: 'Team Card';
+  };
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+    profession: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface CardReviewCard extends Schema.Component {
+  collectionName: 'components_card_review_cards';
+  info: {
+    displayName: 'Review Card';
+  };
+  attributes: {
+    reviewText: Attribute.Text & Attribute.Required;
+    user: Attribute.String & Attribute.Required;
+    profession: Attribute.String & Attribute.Required;
+    rating: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 5;
+        },
+        number
+      >;
+  };
+}
+
 export interface CardsWhyChooseUsCard extends Schema.Component {
   collectionName: 'components_cards_why_choose_us_cards';
   info: {
@@ -375,38 +436,6 @@ export interface CardsClientFeedbackCard extends Schema.Component {
   };
 }
 
-export interface CardTeamCard extends Schema.Component {
-  collectionName: 'components_card_team_cards';
-  info: {
-    displayName: 'Team Card';
-  };
-  attributes: {
-    image: Attribute.Media<'images'> & Attribute.Required;
-    name: Attribute.String & Attribute.Required;
-    profession: Attribute.String & Attribute.Required;
-  };
-}
-
-export interface CardReviewCard extends Schema.Component {
-  collectionName: 'components_card_review_cards';
-  info: {
-    displayName: 'Review Card';
-  };
-  attributes: {
-    reviewText: Attribute.Text & Attribute.Required;
-    user: Attribute.String & Attribute.Required;
-    profession: Attribute.String & Attribute.Required;
-    rating: Attribute.Integer &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 5;
-        },
-        number
-      >;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -416,6 +445,7 @@ declare module '@strapi/types' {
       'navbar.link': NavbarLink;
       'list.domain-price-table-head': ListDomainPriceTableHead;
       'list.domain-price-list': ListDomainPriceList;
+      'landing-page.template-section': LandingPageTemplateSection;
       'landing-page.service-section': LandingPageServiceSection;
       'landing-page.review-section': LandingPageReviewSection;
       'landing-page.pricing-section': LandingPagePricingSection;
@@ -435,11 +465,12 @@ declare module '@strapi/types' {
       'components.enumerated-list': ComponentsEnumeratedList;
       'components.domain-pricing': ComponentsDomainPricing;
       'components.best-hosting-benefit': ComponentsBestHostingBenefit;
+      'card.template-card': CardTemplateCard;
+      'card.team-card': CardTeamCard;
+      'card.review-card': CardReviewCard;
       'cards.why-choose-us-card': CardsWhyChooseUsCard;
       'cards.popular-domain-card': CardsPopularDomainCard;
       'cards.client-feedback-card': CardsClientFeedbackCard;
-      'card.team-card': CardTeamCard;
-      'card.review-card': CardReviewCard;
     }
   }
 }
