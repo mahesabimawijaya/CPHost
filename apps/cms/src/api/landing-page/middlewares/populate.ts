@@ -22,6 +22,18 @@ const populate = {
     pricingSection: {
       populate: "*",
     },
+    bestHostingSection: {
+      populate: "*",
+    },
+    contactUsSection: {
+      populate: "*",
+    },
+    reviewSection: {
+      populate: "*",
+    },
+    faqSection: {
+      populate: "*",
+    },
   },
 };
 

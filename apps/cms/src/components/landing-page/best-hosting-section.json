@@ -1,7 +1,8 @@
 {
   "collectionName": "components_landing_page_best_hosting_sections",
   "info": {
-    "displayName": "Best Hosting Section"
+    "displayName": "Best Hosting Section",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -25,11 +26,15 @@
       "required": true
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "subtitle": {
+      "type": "string",
       "required": true
     }
   }

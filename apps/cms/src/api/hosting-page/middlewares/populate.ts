@@ -6,14 +6,27 @@ import { Strapi } from "@strapi/strapi";
 
 const populate = {
   populate: {
-    clientFeedbackSecton: {
-      populate: "*",
+    clientFeedbackSection: {
+      populate: {
+        feedbackCard: {
+          populate: "*",
+        },
+      },
     },
     recommendationSection: {
-      populate: "*",
+      populate: {
+        companyLogo: true,
+        companyIcon: {
+          populate: "*",
+        },
+      },
     },
     whyChooseUsSection: {
-      populate: "*",
+      populate: {
+        whyChooseUsCard: {
+          populate: "*",
+        },
+      },
     },
   },
 };

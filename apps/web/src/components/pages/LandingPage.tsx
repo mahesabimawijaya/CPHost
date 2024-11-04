@@ -8,6 +8,7 @@ import AboutUs from "../sections/AboutUs";
 import PricingSection from "../sections/PricingSection";
 import { useAppSelector } from "../../lib/redux/hooks";
 import { RootState } from "../../lib/redux/store";
+import BestHostingSection from "../sections/BestHostingSection";
 
 const LandingPage = () => {
   const { landingPage, error } = useAppSelector((state: RootState) => state.strapi);
@@ -15,6 +16,7 @@ const LandingPage = () => {
   const features = landingPage?.data.attributes.featureSection.features;
   const aboutUs = landingPage?.data.attributes.aboutUsSection;
   const pricing = landingPage?.data.attributes.pricingSection;
+  console.log(landingPage);
 
   if (!landingPage) return <Loading />;
   if (error) throw new Error("Error fetching header");
@@ -26,6 +28,7 @@ const LandingPage = () => {
       <Feature features={features as IFeature[]} />
       <AboutUs aboutUs={aboutUs as AboutUsSection} />
       <PricingSection pricingSection={pricing as PlanSection} />
+      <BestHostingSection />
       <Footer />
     </>
   );

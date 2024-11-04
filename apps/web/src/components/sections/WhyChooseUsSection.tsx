@@ -23,15 +23,7 @@ const WhyChooseUsSection: React.FC<Props> = ({ whyChooseUs }) => {
         {whyChooseUs.whyChooseUsCard.map((card) => {
           const iconUrl = baseImageUrl + card.icon.data.attributes.url;
 
-          return (
-            <WhyChooseUsCard
-              key={card.id}
-              id={card.id}
-              title={card.title}
-              description={card.description}
-              icon={iconUrl}
-            />
-          );
+          return <WhyChooseUsCard key={card.id} id={card.id} title={card.title} description={card.description} icon={iconUrl} />;
         })}
       </div>
     </section>

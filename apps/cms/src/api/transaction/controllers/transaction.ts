@@ -11,7 +11,7 @@ export default factories.createCoreController(
       const { data } = ctx.request.body;
       const { domain, invoice, endDate, amount, templateId, planId, user } =
         data;
-
+      // todo : invoice generator ada di helper
       if (
         !domain ||
         !invoice ||

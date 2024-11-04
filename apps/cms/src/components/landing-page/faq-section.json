@@ -1,7 +1,8 @@
 {
   "collectionName": "components_landing_page_faq_sections",
   "info": {
-    "displayName": "FAQ Section"
+    "displayName": "FAQ Section",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -17,11 +18,15 @@
       "required": true
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "subtitle": {
+      "type": "string",
       "required": true
     }
   }

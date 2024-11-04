@@ -135,6 +135,21 @@ export interface PlanSection {
   plans: Plans;
 }
 
+export interface BestHosting {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  pricingButton: string;
+  image: FeatureImageData;
+  bestHostingBenefits: BestHostingBenefits;
+}
+
+export interface BestHostingBenefits {
+  id: number;
+  benefit: string;
+}
+
 export interface Attributes {
   createdAt: string;
   updatedAt: string;
@@ -143,6 +158,7 @@ export interface Attributes {
   featureSection: FeatureSection;
   aboutUsSection: AboutUsSection;
   pricingSection: PlanSection;
+  bestHostingSection: BestHosting;
 }
 
 export interface Data {

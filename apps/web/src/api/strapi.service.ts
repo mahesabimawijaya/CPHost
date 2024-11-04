@@ -1,8 +1,17 @@
-import { fetchData } from "./axios";
+import { createData, fetchData } from "./axios";
 
 export const fetchHeader = async () => {
   try {
     const res = await fetchData("cms", "navbar");
+    return res;
+  } catch (error) {
+    console.error("error fetching header : ", error);
+  }
+};
+
+export const fetchPlanById = async (id: string | undefined) => {
+  try {
+    const res = await fetchData("cms", `plans/${id}`);
     return res;
   } catch (error) {
     console.error("error fetching header : ", error);
@@ -48,3 +57,14 @@ export const fetchDomainPage = async () => {
     console.error("error fetching domain page: ", error);
   }
 };
+
+// export const checkout = async (payload: ) => {
+//   try {
+//     const res = await createData('cms', 'transaction', {
+
+//     })
+//     return res;
+//   } catch (error) {
+//     console.error("error fetching landing page : ", error);
+//   }
+// };

@@ -48,3 +48,11 @@ export function toRupiah(number: number): string {
     maximumFractionDigits: 0,
   }).format(roundedNumber);
 }
+
+function generateInvoiceNumber() {
+  const prefix = "INV-";
+  const timestamp = Date.now().toString(); // Current timestamp
+  const randomSuffix = Math.floor(1000 + Math.random() * 9000); // Random 4-digit number
+
+  return `${prefix}${timestamp.slice(-6)}${randomSuffix}`;
+}

@@ -712,6 +712,14 @@ export interface ApiLandingPageLandingPage extends Schema.SingleType {
       Attribute.Required;
     pricingSection: Attribute.Component<'landing-page.pricing-section'> &
       Attribute.Required;
+    bestHostingSection: Attribute.Component<'landing-page.best-hosting-section'> &
+      Attribute.Required;
+    contactUsSection: Attribute.Component<'landing-page.contact-us'> &
+      Attribute.Required;
+    reviewSection: Attribute.Component<'landing-page.review-section'> &
+      Attribute.Required;
+    faqSection: Attribute.Component<'landing-page.faq-section'> &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -5,6 +5,7 @@ import LandingPage from "./components/pages/LandingPage";
 import HostingPage from "./components/pages/HostingPage";
 import DomainPage from "./components/pages/DomainPage";
 import RegisterModal from "./components/organisms/RegisterModal";
+import CheckoutPage from "./components/pages/CheckoutPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/">
           <Route index element={<LandingPage />} />
         </Route>
+        <Route path="/checkout/:id" element={<CheckoutPage />} />
         <Route path="/hosting" element={<HostingPage />} />
         <Route path="/domain" element={<DomainPage />} />
       </Routes>

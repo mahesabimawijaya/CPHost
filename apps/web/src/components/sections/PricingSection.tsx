@@ -34,7 +34,7 @@ const PricingSection = ({ pricingSection }: { pricingSection: PlanSection }) => 
         </div>
         <div id="pricing-container" className="w-full flex justify-center space-x-8 items-center">
           {pricingSection.plans.data.map((plan, i) => (
-            <PriceCard plan={plan} period={currPeriod} i={i} key={i} />
+            <PriceCard plan={plan} period={currPeriod} i={i} key={i} checkout={false} />
           ))}
         </div>
       </div>
