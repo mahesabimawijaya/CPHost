@@ -23,48 +23,33 @@ export interface IconData {
     attributes: IconAttributes;
   };
 }
+export interface Attributes {
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  contactUsFormSection: IContactUsFormSection;
+  ourSupportSection: IOurSupportSection;
+}
 
-export interface WhyChooseUsCard {
+export interface OurSupportCard {
   id: number;
   title: string;
   description: string;
   icon: IconData;
 }
 
-export interface IWhyChooseUsSection {
+export interface IOurSupportSection {
   id: number;
   title: string;
   subtitle: string;
-  whyChooseUsCard: WhyChooseUsCard[];
+  description: string;
+  ourSupportCard: OurSupportCard[];
 }
 
-export interface IRecommendationSection {
+export interface IContactUsFormSection {
   id: number;
   title: string;
-  companyTitle: string;
-  companyLogo: IconData;
-  companyIcon: CompanyIcon[];
-}
-
-export interface CompanyIcon {
-  id: number;
-  logo: IconData;
-}
-
-export interface Attributes {
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  whyChooseUsSection: IWhyChooseUsSection;
-  recommendationSection: IRecommendationSection;
-  clientFeedbackSection: IClientFeedbackSection;
-}
-
-export interface IClientFeedbackSection {
-  id: number;
-  title: string;
-  subtitle: string;
-  feedbackCard: FeedbackCard[];
+  bgImage: IconData;
 }
 
 export interface FeedbackCard {
@@ -81,7 +66,7 @@ export interface Data {
   attributes: Attributes;
 }
 
-export interface HostingResponse {
+export interface ContactUsResponse {
   data: Data;
   meta: object;
 }

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_cards_our_support_cards",
+  "info": {
+    "displayName": "Our Support Card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "desc": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

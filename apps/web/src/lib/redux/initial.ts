@@ -1,6 +1,8 @@
+import { ContactUsResponse } from "../../types/ContactPage";
 import { DomainResponse } from "../../types/DomainPage";
 import { FooterResponse } from "../../types/Footer";
 import { NavbarResponse } from "../../types/Header";
+import { HostingResponse } from "../../types/HostingPage";
 import { RootObject } from "../../types/LandingPage";
 
 export interface StrapiState {
@@ -8,10 +10,10 @@ export interface StrapiState {
   footer: FooterResponse | null;
   landingPage: RootObject | null;
   aboutUsPage: null;
-  contactUsPage: null;
+  contactUsPage: ContactUsResponse | null;
   domainPage: DomainResponse | null;
   faqPage: null;
-  hostingPage: null;
+  hostingPage: HostingResponse | null;
   newsGridPage: null;
   newsDetailsPage: null;
   pricingPage: null;

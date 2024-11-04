@@ -3,28 +3,17 @@
  */
 
 import { Strapi } from "@strapi/strapi";
+import template from "../../template/controllers/template";
 
 const populate = {
   populate: {
-    clientFeedbackSection: {
-      populate: {
-        feedbackCard: {
-          populate: "image",
-        },
-      },
+    contactUsFormSection: {
+      populate: "*",
     },
-    recommendationSection: {
+    ourSupportSection: {
       populate: {
-        companyLogo: "*",
-        companyIcon: {
-          populate: "*",
-        },
-      },
-    },
-    whyChooseUsSection: {
-      populate: {
-        whyChooseUsCard: {
-          populate: "*",
+        ourSupportCard: {
+          populate: "icon",
         },
       },
     },

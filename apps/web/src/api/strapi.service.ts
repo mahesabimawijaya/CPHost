@@ -29,9 +29,7 @@ export const fetchLandingPage = async () => {
 
 export const fetchHostingPage = async () => {
   try {
-    // TODO: api/hosting-page wont respond
-    const url = `hosting-page?populate=clientFeedbackSection.feedbackCard.image,recommendationSection.companyLogo.logo,recommendationSection.companyIcon.logo,whyChooseUsSection.whyChooseUsCard.icon`;
-    const res = await fetchData("cms", url);
+    const res = await fetchData("cms", "hosting-page");
     return res;
   } catch (error) {
     console.error("error fetching hosting page: ", error);

@@ -2,14 +2,17 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchData } from "../../api/axios";
 import { initialState } from "./initial";
 
-export const fetchLandingPage = createAsyncThunk("strapi/fetchLandingPage", async () => {
-  try {
-    const res = await fetchData("cms", "landing-page");
-    return res;
-  } catch (error) {
-    console.error("error fetching landing page : ", error);
+export const fetchLandingPage = createAsyncThunk(
+  "strapi/fetchLandingPage",
+  async () => {
+    try {
+      const res = await fetchData("cms", "landing-page");
+      return res;
+    } catch (error) {
+      console.error("error fetching landing page : ", error);
+    }
   }
-});
+);
 
 export const fetchHeader = createAsyncThunk("strapi/fetchHeader", async () => {
   try {
@@ -29,27 +32,43 @@ export const fetchFooter = createAsyncThunk("strapi/fetchFooter", async () => {
   }
 });
 
-export const fetchHostingPage = createAsyncThunk("strapi/fetchHostingPage", async () => {
-  try {
-    // TODO: api/hosting-page wont respond
-    const url = `hosting-page?populate=clientFeedbackSection.feedbackCard.image,recommendationSection.companyLogo.logo,recommendationSection.companyIcon.logo,whyChooseUsSection.whyChooseUsCard.icon`;
-    const res = await fetchData("cms", url);
-    return res;
-  } catch (error) {
-    console.error("error fetching hosting page: ", error);
+export const fetchHostingPage = createAsyncThunk(
+  "strapi/fetchHostingPage",
+  async () => {
+    try {
+      const res = await fetchData("cms", "hosting-page");
+      return res;
+    } catch (error) {
+      console.error("error fetching hosting page: ", error);
+    }
   }
-});
+);
 
-export const fetchDomainPage = createAsyncThunk("strapi/fetchDomainPage", async () => {
-  try {
-    // TODO: api/domain-page wont respond
-    const url = `domain-page?populate=popularDomainSection.popularDomainCard.logo`;
-    const res = await fetchData("cms", url);
-    return res;
-  } catch (error) {
-    console.error("error fetching domain page: ", error);
+export const fetchDomainPage = createAsyncThunk(
+  "strapi/fetchDomainPage",
+  async () => {
+    try {
+      // TODO: api/domain-page wont respond
+      const url = `domain-page?populate=popularDomainSection.popularDomainCard.logo`;
+      const res = await fetchData("cms", url);
+      return res;
+    } catch (error) {
+      console.error("error fetching domain page: ", error);
+    }
   }
-});
+);
+
+export const fetchContactUsPage = createAsyncThunk(
+  "strapi/fetchContactUsPage",
+  async () => {
+    try {
+      const res = await fetchData("cms", "contact-us-page");
+      return res;
+    } catch (error) {
+      console.error("error fetching contact us page: ", error);
+    }
+  }
+);
 
 export const strapiSlice = createSlice({
   name: "strapi",
@@ -90,6 +109,17 @@ export const strapiSlice = createSlice({
         state.loading = false;
         state.error = action.payload as string;
       })
+      .addCase(fetchHostingPage.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchHostingPage.fulfilled, (state, action) => {
+        state.loading = false;
+        state.hostingPage = action.payload;
+      })
+      .addCase(fetchHostingPage.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
+      })
       .addCase(fetchDomainPage.pending, (state) => {
         state.loading = true;
       })
@@ -98,6 +128,17 @@ export const strapiSlice = createSlice({
         state.domainPage = action.payload;
       })
       .addCase(fetchDomainPage.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
+      })
+      .addCase(fetchContactUsPage.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchContactUsPage.fulfilled, (state, action) => {
+        state.loading = false;
+        state.contactUsPage = action.payload;
+      })
+      .addCase(fetchContactUsPage.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as string;
       });

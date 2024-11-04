@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_contact_us_page_our_support_sections",
+  "info": {
+    "displayName": "Our Support Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "ourSupportCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.our-support-card"
+    }
+  }
+}

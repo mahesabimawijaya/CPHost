@@ -1,5 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import strapiReducer, { fetchDomainPage, fetchFooter, fetchHeader, fetchLandingPage } from "./strapi.slice";
+import strapiReducer, {
+  fetchContactUsPage,
+  fetchDomainPage,
+  fetchFooter,
+  fetchHeader,
+  fetchHostingPage,
+  fetchLandingPage,
+} from "./strapi.slice";
 
 const store = configureStore({
   reducer: {
@@ -11,6 +18,8 @@ store.dispatch(fetchHeader());
 store.dispatch(fetchFooter());
 store.dispatch(fetchLandingPage());
 store.dispatch(fetchDomainPage());
+store.dispatch(fetchHostingPage());
+store.dispatch(fetchContactUsPage());
 
 export default store;
 

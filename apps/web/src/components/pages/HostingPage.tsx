@@ -1,31 +1,30 @@
-import { useQuery } from "@tanstack/react-query";
 import WhyChooseUsSection from "../sections/WhyChooseUsSection";
-import { fetchHostingPage } from "../../api/strapi.service";
 import {
   IClientFeedbackSection,
   IRecommendationSection,
   IWhyChooseUsSection,
-  RootObject,
 } from "../../types/HostingPage";
 import Loading from "../atoms/Loading";
 import Header from "../organisms/Header";
 import RecommendationSection from "../sections/RecommendationSection";
 import ClientFeedbackSection from "../sections/ClientFeedbackSection";
+import { useAppSelector } from "../../lib/redux/hooks";
+import { RootState } from "../../lib/redux/store";
 
 const HostingPage = () => {
-  const { data, isLoading, error } = useQuery<RootObject>({
-    queryKey: ["hosting-page"],
-    queryFn: fetchHostingPage,
-  });
+  const { hostingPage, error } = useAppSelector(
+    (state: RootState) => state.strapi
+  );
 
-  if (isLoading) return <Loading />;
-  if (error) return <div>Error fetching data: {error.message}</div>;
+  console.log("Hosting page:", hostingPage);
 
-  const whyChooseUs = data?.data?.attributes?.whyChooseUsSection;
-  const recommendation = data?.data?.attributes?.recommendationSection;
-  const feedback = data?.data?.attributes?.clientFeedbackSection;
+  if (!hostingPage) return <Loading />;
+  if (error) return <div>Error fetching data: {error}</div>;
 
-  // console.log("Recommendation:", recommendation);
+  const whyChooseUs = hostingPage?.data.attributes.whyChooseUsSection;
+  console.log("why choose us:", whyChooseUs);
+  const recommendation = hostingPage?.data.attributes.recommendationSection;
+  const feedback = hostingPage?.data.attributes.clientFeedbackSection;
 
   return (
     <>

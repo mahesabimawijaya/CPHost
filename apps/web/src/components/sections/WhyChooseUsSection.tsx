@@ -3,13 +3,13 @@ import { IWhyChooseUsSection } from "../../types/HostingPage";
 import SectionSubTitle from "../atoms/SectionSubTitle";
 import SectionTitle from "../atoms/SectionTitle";
 import StepperPill from "../atoms/StepperPill";
+import { baseImageUrl } from "../../utils/helper";
 
 interface Props {
   whyChooseUs: IWhyChooseUsSection;
 }
 
 const WhyChooseUsSection: React.FC<Props> = ({ whyChooseUs }) => {
-  const baseImageUrl = import.meta.env.VITE_BASE_CMS_IMAGE_URL;
   const steps = ["Step 1", "Step 2", "Step 3", "Step 4"];
 
   return (

@@ -590,6 +590,38 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface ApiContactUsPageContactUsPage extends Schema.SingleType {
+  collectionName: 'contact_us_pages';
+  info: {
+    singularName: 'contact-us-page';
+    pluralName: 'contact-us-pages';
+    displayName: 'Contact Us Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ourSupportSection: Attribute.Component<'contact-us-page.our-support-section'>;
+    contactUsFormSection: Attribute.Component<'contact-us-page.contact-us-form-section'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-us-page.contact-us-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-us-page.contact-us-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDomainPageDomainPage extends Schema.SingleType {
   collectionName: 'domain_pages';
   info: {
@@ -910,6 +942,7 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'api::contact-us-page.contact-us-page': ApiContactUsPageContactUsPage;
       'api::domain-page.domain-page': ApiDomainPageDomainPage;
       'api::footer.footer': ApiFooterFooter;
       'api::hosting-page.hosting-page': ApiHostingPageHostingPage;

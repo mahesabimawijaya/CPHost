@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_contact_us_page_contact_us_form_sections",
+  "info": {
+    "displayName": "Contact Us Form Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "bgImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

@@ -1,4 +1,3 @@
-import React from "react";
 import SectionSubTitleThin from "../atoms/SectionSubtitleThin";
 import SectionTitle from "../atoms/SectionTitle";
 import SectionDesc from "../atoms/SectionDesc";
