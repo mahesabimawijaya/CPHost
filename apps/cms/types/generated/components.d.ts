@@ -142,6 +142,19 @@ export interface LandingPagePricingSection extends Schema.Component {
   };
 }
 
+export interface LandingPageOurNewsSection extends Schema.Component {
+  collectionName: 'components_landing_page_our_news_sections';
+  info: {
+    displayName: 'Our News Section';
+  };
+  attributes: {
+    subtitle: Attribute.String & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    newsGridCard: Attribute.Component<'cards.news-grid-card', true>;
+  };
+}
+
 export interface LandingPageHeroSection extends Schema.Component {
   collectionName: 'components_landing_page_hero_sections';
   info: {
@@ -230,6 +243,16 @@ export interface LandingPageAboutUsSection extends Schema.Component {
   };
 }
 
+export interface IconsRecCompanyIcons extends Schema.Component {
+  collectionName: 'components_icons_rec_company_icons';
+  info: {
+    displayName: 'Rec Company Icons';
+  };
+  attributes: {
+    logo: Attribute.Media<'images'> & Attribute.Required;
+  };
+}
+
 export interface HostingPageWhyChooseUsSection extends Schema.Component {
   collectionName: 'components_hosting_page_why_choose_us_sections';
   info: {
@@ -264,16 +287,6 @@ export interface HostingPageClientFeedbackSection extends Schema.Component {
     title: Attribute.String & Attribute.Required;
     subtitle: Attribute.String & Attribute.Required;
     feedbackCard: Attribute.Component<'cards.client-feedback-card', true>;
-  };
-}
-
-export interface IconsRecCompanyIcons extends Schema.Component {
-  collectionName: 'components_icons_rec_company_icons';
-  info: {
-    displayName: 'Rec Company Icons';
-  };
-  attributes: {
-    logo: Attribute.Media<'images'> & Attribute.Required;
   };
 }
 
@@ -414,6 +427,22 @@ export interface CardsOurSupportCard extends Schema.Component {
   };
 }
 
+export interface CardsNewsGridCard extends Schema.Component {
+  collectionName: 'components_cards_news_grid_cards';
+  info: {
+    displayName: 'News Grid Card';
+  };
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required;
+    category: Attribute.String & Attribute.Required;
+    date: Attribute.Date & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    writerImage: Attribute.Media<'images'> & Attribute.Required;
+    writerName: Attribute.String & Attribute.Required;
+    writerPos: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface CardsClientFeedbackCard extends Schema.Component {
   collectionName: 'components_cards_client_feedback_cards';
   info: {
@@ -485,16 +514,17 @@ declare module '@strapi/types' {
       'landing-page.service-section': LandingPageServiceSection;
       'landing-page.review-section': LandingPageReviewSection;
       'landing-page.pricing-section': LandingPagePricingSection;
+      'landing-page.our-news-section': LandingPageOurNewsSection;
       'landing-page.hero-section': LandingPageHeroSection;
       'landing-page.feature-section': LandingPageFeatureSection;
       'landing-page.faq-section': LandingPageFaqSection;
       'landing-page.contact-us': LandingPageContactUs;
       'landing-page.best-hosting-section': LandingPageBestHostingSection;
       'landing-page.about-us-section': LandingPageAboutUsSection;
+      'icons.rec-company-icons': IconsRecCompanyIcons;
       'hosting-page.why-choose-us-section': HostingPageWhyChooseUsSection;
       'hosting-page.recommendation-section': HostingPageRecommendationSection;
       'hosting-page.client-feedback-section': HostingPageClientFeedbackSection;
-      'icons.rec-company-icons': IconsRecCompanyIcons;
       'domain-page.popular-domain-section': DomainPagePopularDomainSection;
       'domain-page.domain-list-section': DomainPageDomainListSection;
       'contact-us-page.our-support-section': ContactUsPageOurSupportSection;
@@ -506,6 +536,7 @@ declare module '@strapi/types' {
       'cards.why-choose-us-card': CardsWhyChooseUsCard;
       'cards.popular-domain-card': CardsPopularDomainCard;
       'cards.our-support-card': CardsOurSupportCard;
+      'cards.news-grid-card': CardsNewsGridCard;
       'cards.client-feedback-card': CardsClientFeedbackCard;
       'card.template-card': CardTemplateCard;
       'card.team-card': CardTeamCard;

@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_cards_news_grid_cards",
+  "info": {
+    "displayName": "News Grid Card"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "category": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "writerImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "writerName": {
+      "type": "string",
+      "required": true
+    },
+    "writerPos": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

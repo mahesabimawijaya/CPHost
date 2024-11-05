@@ -15,6 +15,8 @@ import PricingSection from "../sections/PricingSection";
 import TemplateSection from "../sections/TemplateSection";
 import { useAppSelector } from "../../lib/redux/hooks";
 import { RootState } from "../../lib/redux/store";
+import NewsGridSection from "../sections/NewsGridSection";
+import OurNewsSection from "../sections/OurNewsSection";
 
 const LandingPage = () => {
   const { landingPage, error } = useAppSelector(
@@ -37,6 +39,8 @@ const LandingPage = () => {
       <AboutUs aboutUs={aboutUs as AboutUsSection} />
       <PricingSection pricingSection={pricing as PlanSection} />
       <TemplateSection templateSection={template as ITemplateSection} />
+      {/* <OurNewsSection /> */}
+      <NewsGridSection />
       <Footer />
     </>
   );

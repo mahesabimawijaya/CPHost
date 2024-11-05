@@ -800,6 +800,36 @@ export interface ApiNavbarNavbar extends Schema.SingleType {
   };
 }
 
+export interface ApiNewsGridPageNewsGridPage extends Schema.SingleType {
+  collectionName: 'news_grid_pages';
+  info: {
+    singularName: 'news-grid-page';
+    pluralName: 'news-grid-pages';
+    displayName: 'News Grid Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    newsGridCard: Attribute.Component<'cards.news-grid-card', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::news-grid-page.news-grid-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::news-grid-page.news-grid-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPlanPlan extends Schema.CollectionType {
   collectionName: 'plans';
   info: {
@@ -948,6 +978,7 @@ declare module '@strapi/types' {
       'api::hosting-page.hosting-page': ApiHostingPageHostingPage;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::navbar.navbar': ApiNavbarNavbar;
+      'api::news-grid-page.news-grid-page': ApiNewsGridPageNewsGridPage;
       'api::plan.plan': ApiPlanPlan;
       'api::template.template': ApiTemplateTemplate;
       'api::transaction.transaction': ApiTransactionTransaction;
