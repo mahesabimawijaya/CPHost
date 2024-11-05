@@ -51,6 +51,15 @@ export const fetchDomainPage = createAsyncThunk("strapi/fetchDomainPage", async 
   }
 });
 
+export const fetchTemplates = createAsyncThunk("strapi/fetchTemplates", async () => {
+  try {
+    const res = await fetchData("cms", "templates");
+    return res;
+  } catch (error) {
+    console.error("error fetching templates : ", error);
+  }
+});
+
 export const strapiSlice = createSlice({
   name: "strapi",
   initialState,
@@ -98,6 +107,17 @@ export const strapiSlice = createSlice({
         state.domainPage = action.payload;
       })
       .addCase(fetchDomainPage.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
+      })
+      .addCase(fetchTemplates.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchTemplates.fulfilled, (state, action) => {
+        state.loading = false;
+        state.templates = action.payload;
+      })
+      .addCase(fetchTemplates.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as string;
       });

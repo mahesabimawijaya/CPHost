@@ -1,12 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import WhyChooseUsSection from "../sections/WhyChooseUsSection";
 import { fetchHostingPage } from "../../api/strapi.service";
-import {
-  IClientFeedbackSection,
-  IRecommendationSection,
-  IWhyChooseUsSection,
-  RootObject,
-} from "../../types/HostingPage";
+import { IClientFeedbackSection, IRecommendationSection, IWhyChooseUsSection, RootObject } from "../../types/HostingPage";
 import Loading from "../atoms/Loading";
 import Header from "../organisms/Header";
 import RecommendationSection from "../sections/RecommendationSection";
@@ -32,9 +27,7 @@ const HostingPage = () => {
       <Header />
       <WhyChooseUsSection whyChooseUs={whyChooseUs as IWhyChooseUsSection} />
       <ClientFeedbackSection feedback={feedback as IClientFeedbackSection} />
-      <RecommendationSection
-        recommendation={recommendation as IRecommendationSection}
-      />
+      <RecommendationSection recommendation={recommendation as IRecommendationSection} />
     </>
   );
 };

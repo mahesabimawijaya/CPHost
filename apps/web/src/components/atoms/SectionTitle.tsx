@@ -2,12 +2,13 @@ import React from "react";
 
 interface SectionTitleProps {
   title: string;
+  color?: string;
 }
 
-const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => {
+const SectionTitle: React.FC<SectionTitleProps> = ({ title, color }) => {
   return (
     <div>
-      <div className="text-5xl font-bold">{title}</div>
+      <div className={`${color ? `text-${color}` : ``} text-5xl font-bold`}>{title}</div>
     </div>
   );
 };

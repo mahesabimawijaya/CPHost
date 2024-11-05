@@ -120,6 +120,10 @@ export interface Plans {
   data: PlanData[];
 }
 
+export interface Plan {
+  data: PlanData;
+}
+
 export interface Period {
   id: number;
   benefit: string;
@@ -135,6 +139,16 @@ export interface PlanSection {
   plans: Plans;
 }
 
+export interface BestHosting {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  pricingButton: string;
+  image: FeatureImageData;
+  bestHostingBenefits: BestHostingBenefits[];
+}
+
 export interface ButtonData {
   id: number;
   label: string;
@@ -148,7 +162,7 @@ export interface TemplateAttributes {
   updatedAt: string;
   publishedAt: string;
   transactions: {
-    data: any[];
+    data: unknown[];
   };
   icon: {
     data: ImageData;
@@ -171,6 +185,47 @@ export interface ITemplateSection {
   };
 }
 
+export interface BestHostingBenefits {
+  id: number;
+  benefit: string;
+}
+
+export interface ContactUs {
+  id: number;
+  subtitle: string;
+  title: string;
+  talkToButton: string;
+}
+
+export interface Review {
+  id: number;
+  backgroundImage: FeatureImageData;
+  image: FeatureImageData;
+  reviewCard: IReviewCard[];
+}
+
+export interface IReviewCard {
+  id: number;
+  profession: string;
+  rating: number;
+  reviewText: string;
+  user: string;
+}
+
+export interface Faq {
+  id: number;
+  title: string;
+  subtitle: string;
+  image: FeatureImageData;
+  questionLists: QuestionList[];
+}
+
+export interface QuestionList {
+  id: number;
+  question: string;
+  answer: string;
+}
+
 export interface Attributes {
   createdAt: string;
   updatedAt: string;
@@ -179,7 +234,11 @@ export interface Attributes {
   featureSection: FeatureSection;
   aboutUsSection: AboutUsSection;
   pricingSection: PlanSection;
+  bestHostingSection: BestHosting;
   templateSection: ITemplateSection;
+  contactUsSection: ContactUs;
+  reviewSection: Review;
+  faqSection: Faq;
 }
 
 export interface Data {

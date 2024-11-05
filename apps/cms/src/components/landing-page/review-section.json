@@ -1,23 +1,32 @@
 {
   "collectionName": "components_landing_page_review_sections",
   "info": {
-    "displayName": "Review Section"
+    "displayName": "Review Section",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "reviewCard": {
       "displayName": "Review Card",
       "type": "component",
       "repeatable": true,
       "component": "card.review-card"
+    },
+    "backgroundImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

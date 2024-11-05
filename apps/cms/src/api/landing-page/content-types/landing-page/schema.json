@@ -39,6 +39,30 @@
       "type": "component",
       "repeatable": false,
       "component": "landing-page.template-section"
+    },
+    "bestHostingSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing-page.best-hosting-section",
+      "required": true
+    },
+    "contactUsSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing-page.contact-us",
+      "required": true
+    },
+    "reviewSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing-page.review-section",
+      "required": true
+    },
+    "faqSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing-page.faq-section",
+      "required": true
     }
   }
 }

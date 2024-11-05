@@ -5,14 +5,10 @@ import SectionSubTitleThin from "../atoms/SectionSubtitleThin";
 import SectionTitle from "../atoms/SectionTitle";
 import TemplateCard from "../molecules/TemplateCard";
 
-const TemplateSection = ({
-  templateSection,
-}: {
-  templateSection: ITemplateSection;
-}) => {
+const TemplateSection = ({ templateSection }: { templateSection: ITemplateSection }) => {
   return (
     <>
-      <section className="flex flex-col items-center gap-4 w-screen mx-auto py-20">
+      <section className="flex flex-col items-center gap-4 w-full mx-auto py-20">
         <SectionSubTitleThin subtitle={"Our Services"} />
         <SectionTitle title={"We Provide Web Templates"} />
         <SectionDesc
@@ -22,9 +18,8 @@ massa rhoncus ac nulla vel iaculis egestas mauris 123"
 
         {/* CARDS */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {templateSection.templates.data.map((template: any) => {
-            const iconImage =
-              baseImageUrl + template.attributes.icon.data.attributes.url;
+          {templateSection.templates.data.map((template) => {
+            const iconImage = baseImageUrl + template.attributes.icon.data.attributes.url;
 
             return (
               <TemplateCard

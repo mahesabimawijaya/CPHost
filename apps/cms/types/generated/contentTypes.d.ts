@@ -590,6 +590,43 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface ApiAboutUsPageAboutUsPage extends Schema.SingleType {
+  collectionName: 'about_us_pages';
+  info: {
+    singularName: 'about-us-page';
+    pluralName: 'about-us-pages';
+    displayName: 'About Us Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    subHeroSection: Attribute.Component<'components.sub-hero-section'> &
+      Attribute.Required;
+    aboutUsSection: Attribute.Component<'landing-page.about-us-section'> &
+      Attribute.Required;
+    bestHostingSection: Attribute.Component<'landing-page.best-hosting-section'> &
+      Attribute.Required;
+    reviewSection: Attribute.Component<'landing-page.review-section'> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-us-page.about-us-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-us-page.about-us-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDomainPageDomainPage extends Schema.SingleType {
   collectionName: 'domain_pages';
   info: {
@@ -712,6 +749,15 @@ export interface ApiLandingPageLandingPage extends Schema.SingleType {
       Attribute.Required;
     pricingSection: Attribute.Component<'landing-page.pricing-section'> &
       Attribute.Required;
+    templateSection: Attribute.Component<'landing-page.template-section'>;
+    bestHostingSection: Attribute.Component<'landing-page.best-hosting-section'> &
+      Attribute.Required;
+    contactUsSection: Attribute.Component<'landing-page.contact-us'> &
+      Attribute.Required;
+    reviewSection: Attribute.Component<'landing-page.review-section'> &
+      Attribute.Required;
+    faqSection: Attribute.Component<'landing-page.faq-section'> &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -824,6 +870,8 @@ export interface ApiTemplateTemplate extends Schema.CollectionType {
       'oneToMany',
       'api::transaction.transaction'
     >;
+    icon: Attribute.Media<'images'> & Attribute.Required;
+    btn: Attribute.Component<'navbar.link'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -906,6 +954,7 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'api::about-us-page.about-us-page': ApiAboutUsPageAboutUsPage;
       'api::domain-page.domain-page': ApiDomainPageDomainPage;
       'api::footer.footer': ApiFooterFooter;
       'api::hosting-page.hosting-page': ApiHostingPageHostingPage;
