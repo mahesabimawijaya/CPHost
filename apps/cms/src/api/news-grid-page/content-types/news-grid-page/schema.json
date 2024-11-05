@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "news_grid_pages",
+  "info": {
+    "singularName": "news-grid-page",
+    "pluralName": "news-grid-pages",
+    "displayName": "News Grid Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "newsGridCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.news-grid-card"
+    }
+  }
+}
