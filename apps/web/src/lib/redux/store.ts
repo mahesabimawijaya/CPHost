@@ -7,10 +7,12 @@ import strapiReducer, {
   fetchHostingPage,
   fetchLandingPage,
 } from "./strapi.slice";
+import { userSlice } from "./user.slice";
 
 const store = configureStore({
   reducer: {
     strapi: strapiReducer,
+    auth: userSlice.reducer,
   },
 });
 

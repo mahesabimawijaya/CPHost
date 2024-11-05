@@ -40,3 +40,12 @@ export const initialState: StrapiState = {
   loading: false,
   error: "",
 };
+
+export const initialUser = {
+  id: "",
+  email: "",
+  password: "",
+  role: "",
+  firstName: "",
+  lastName: "",
+};

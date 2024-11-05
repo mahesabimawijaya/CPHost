@@ -16,7 +16,6 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
   label,
   url,
 }) => {
-  console.log({ icon, title, description, label, url });
   return (
     <div className="flex flex-col gap-4 w-80 h-[21rem] justify-center py-10 px-8 bg-[#F1F5FA] border border-[#CAD3FF] rounded-xl group transition-colors duration-300 hover:bg-blue-600">
       <div className="flex justify-between items-center">

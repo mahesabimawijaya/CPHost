@@ -29,31 +29,4 @@ export class UserController {
   async login(@Body() loginUserDto: LoginUserDto, @Res() res: Response) {
     return await this.userService.login(loginUserDto, res);
   }
-
-  // @Post('v2')
-  // // used Response from express to set cookie
-  // async login(@Body() loginUserDto: LoginUserDto, @Res() res: Response) {
-  //   try {
-  //     const result = await this.userService.login(loginUserDto);
-
-  //     res.cookie('access_token', result.accessToken);
-  //     res.cookie('refresh_token', result.refreshToken);
-
-  //     const { accessToken, refreshToken, ...userInfo } = result;
-
-  //     return res.json({
-  //       success: true,
-  //       message: 'Login successful!',
-  //       data: userInfo,
-  //     });
-  //   } catch (error) {
-  //     console.error('Login error:', error);
-
-  //     return res.status(error.status || 500).json({
-  //       success: false,
-  //       message: error.message || 'An unexpected error occurred.',
-  //       data: null,
-  //     });
-  //   }
-  // }
 }

@@ -230,16 +230,6 @@ export interface LandingPageAboutUsSection extends Schema.Component {
   };
 }
 
-export interface IconsRecCompanyIcons extends Schema.Component {
-  collectionName: 'components_icons_rec_company_icons';
-  info: {
-    displayName: 'Rec Company Icons';
-  };
-  attributes: {
-    logo: Attribute.Media<'images'> & Attribute.Required;
-  };
-}
-
 export interface HostingPageWhyChooseUsSection extends Schema.Component {
   collectionName: 'components_hosting_page_why_choose_us_sections';
   info: {
@@ -274,6 +264,16 @@ export interface HostingPageClientFeedbackSection extends Schema.Component {
     title: Attribute.String & Attribute.Required;
     subtitle: Attribute.String & Attribute.Required;
     feedbackCard: Attribute.Component<'cards.client-feedback-card', true>;
+  };
+}
+
+export interface IconsRecCompanyIcons extends Schema.Component {
+  collectionName: 'components_icons_rec_company_icons';
+  info: {
+    displayName: 'Rec Company Icons';
+  };
+  attributes: {
+    logo: Attribute.Media<'images'> & Attribute.Required;
   };
 }
 
@@ -491,10 +491,10 @@ declare module '@strapi/types' {
       'landing-page.contact-us': LandingPageContactUs;
       'landing-page.best-hosting-section': LandingPageBestHostingSection;
       'landing-page.about-us-section': LandingPageAboutUsSection;
-      'icons.rec-company-icons': IconsRecCompanyIcons;
       'hosting-page.why-choose-us-section': HostingPageWhyChooseUsSection;
       'hosting-page.recommendation-section': HostingPageRecommendationSection;
       'hosting-page.client-feedback-section': HostingPageClientFeedbackSection;
+      'icons.rec-company-icons': IconsRecCompanyIcons;
       'domain-page.popular-domain-section': DomainPagePopularDomainSection;
       'domain-page.domain-list-section': DomainPageDomainListSection;
       'contact-us-page.our-support-section': ContactUsPageOurSupportSection;

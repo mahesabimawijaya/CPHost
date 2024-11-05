@@ -82,7 +82,6 @@ export class UserService {
     }
 
     try {
-      console.log('Start login', Date.now());
       const user = await this.userRepository.findOne({ where: { email } });
 
       if (!user) {
@@ -91,7 +90,6 @@ export class UserService {
         );
       }
 
-      console.log('After DB lookup', Date.now());
       const isPasswordValid = await comparePassword(user.password, password);
 
       if (!isPasswordValid) {
@@ -105,32 +103,43 @@ export class UserService {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
-        role: user.role,
       };
 
-      console.log('After password comparison', Date.now());
+      // const accessToken = createToken({ data: userInfo }, '1hr');
 
-      const encryptedUserInfo = encrypt(JSON.stringify(userInfo));
+      const encryptedUserInfo = Buffer.from(
+        encrypt(JSON.stringify(userInfo)),
+      ).toString('base64');
 
-      const accessToken = createToken({ data: encryptedUserInfo }, '1hr');
-      const encryptedAccessToken = encrypt(accessToken);
       const refreshToken = createToken({ id: user.id }, '12h');
 
-      console.log('After token creation', Date.now());
+      const accessToken = createToken({ data: encryptedUserInfo }, '1hr');
 
-      // res.cookie('access_token', accessToken);
-      // res.cookie('refresh_token', refreshToken);
-      
-      return res.json({
-        accessToken: encryptedAccessToken,
-        refreshToken,
-        success: true,
-        message: 'Login successful!',}).status(200).cookie('access_token', accessToken).cookie('refresh_token', refreshToken)
+      // const encryptedAccessToken = encrypt(accessToken);
+
+      // const refreshToken = createToken({ id: user.id }, '12h');
+      // const encryptedRefreshToken = encrypt(refreshToken);
+
+      return res
+        .status(200)
+        .cookie('access_token', accessToken, {
+          // httpOnly: true,
+          // secure: process.env.NODE_ENV === 'production',
+        })
+        .cookie('refresh_token', refreshToken, {
+          // httpOnly: true,
+          // secure: process.env.NODE_ENV === 'production',
+        })
+        .send({
+          success: true,
+          message: 'Login successful!',
+          accessToken,
+          refreshToken,
+        });
     } catch (error) {
       if (error instanceof BadRequestException) {
         throw error;
       }
-
       throw new BadRequestException(response(false, 'Login failed', null));
     }
   }
