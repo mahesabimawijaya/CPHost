@@ -5,7 +5,7 @@ import StatisticCard from "../molecules/StatisticCard";
 
 const AboutUs = ({ aboutUs }: { aboutUs: AboutUsSection }) => {
   return (
-    <section className="w-full h-[1250px] flex justify-center items-center pt-20">
+    <section className="w-full h-[1050px] flex justify-center items-center pt-20">
       <div className="w-primary flex items-center gap-x-[210px]">
         <div id="about-us-left w-1/2">
           <div className="relative">

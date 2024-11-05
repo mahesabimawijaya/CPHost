@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "team_pages",
+  "info": {
+    "singularName": "team-page",
+    "pluralName": "team-pages",
+    "displayName": "Team Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "teamSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "team-page.team-section",
+      "required": true
+    },
+    "subHeroSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.sub-hero-section",
+      "required": true
+    }
+  }
+}

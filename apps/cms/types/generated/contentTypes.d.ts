@@ -596,6 +596,7 @@ export interface ApiAboutUsPageAboutUsPage extends Schema.SingleType {
     singularName: 'about-us-page';
     pluralName: 'about-us-pages';
     displayName: 'About Us Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -608,6 +609,8 @@ export interface ApiAboutUsPageAboutUsPage extends Schema.SingleType {
     bestHostingSection: Attribute.Component<'landing-page.best-hosting-section'> &
       Attribute.Required;
     reviewSection: Attribute.Component<'landing-page.review-section'> &
+      Attribute.Required;
+    teamSection: Attribute.Component<'team-page.team-section'> &
       Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -651,6 +654,38 @@ export interface ApiDomainPageDomainPage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::domain-page.domain-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFaqPageFaqPage extends Schema.SingleType {
+  collectionName: 'faq_pages';
+  info: {
+    singularName: 'faq-page';
+    pluralName: 'faq-pages';
+    displayName: 'Faq Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    subHeroSection: Attribute.Component<'components.sub-hero-section'> &
+      Attribute.Required;
+    faqSection: Attribute.Component<'landing-page.faq-section'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::faq-page.faq-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::faq-page.faq-page',
       'oneToOne',
       'admin::user'
     > &
@@ -851,6 +886,113 @@ export interface ApiPlanPlan extends Schema.CollectionType {
   };
 }
 
+export interface ApiPricingPagePricingPage extends Schema.SingleType {
+  collectionName: 'pricing_pages';
+  info: {
+    singularName: 'pricing-page';
+    pluralName: 'pricing-pages';
+    displayName: 'Pricing Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    subHeroSection: Attribute.Component<'components.sub-hero-section'> &
+      Attribute.Required;
+    whyChooseUsSection: Attribute.Component<'hosting-page.why-choose-us-section'> &
+      Attribute.Required;
+    pricingSection: Attribute.Component<'landing-page.pricing-section'> &
+      Attribute.Required;
+    faqSection: Attribute.Component<'landing-page.faq-section'> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pricing-page.pricing-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pricing-page.pricing-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiServicePageServicePage extends Schema.SingleType {
+  collectionName: 'service_pages';
+  info: {
+    singularName: 'service-page';
+    pluralName: 'service-pages';
+    displayName: 'Service Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    subHeroSection: Attribute.Component<'components.sub-hero-section'> &
+      Attribute.Required;
+    recommendationSection: Attribute.Component<'hosting-page.recommendation-section'> &
+      Attribute.Required;
+    bestHostingSection: Attribute.Component<'landing-page.best-hosting-section'> &
+      Attribute.Required;
+    faqSection: Attribute.Component<'landing-page.faq-section'> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::service-page.service-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::service-page.service-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTeamPageTeamPage extends Schema.SingleType {
+  collectionName: 'team_pages';
+  info: {
+    singularName: 'team-page';
+    pluralName: 'team-pages';
+    displayName: 'Team Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    teamSection: Attribute.Component<'team-page.team-section'> &
+      Attribute.Required;
+    subHeroSection: Attribute.Component<'components.sub-hero-section'> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::team-page.team-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::team-page.team-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTemplateTemplate extends Schema.CollectionType {
   collectionName: 'templates';
   info: {
@@ -956,11 +1098,15 @@ declare module '@strapi/types' {
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'api::about-us-page.about-us-page': ApiAboutUsPageAboutUsPage;
       'api::domain-page.domain-page': ApiDomainPageDomainPage;
+      'api::faq-page.faq-page': ApiFaqPageFaqPage;
       'api::footer.footer': ApiFooterFooter;
       'api::hosting-page.hosting-page': ApiHostingPageHostingPage;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::plan.plan': ApiPlanPlan;
+      'api::pricing-page.pricing-page': ApiPricingPagePricingPage;
+      'api::service-page.service-page': ApiServicePageServicePage;
+      'api::team-page.team-page': ApiTeamPageTeamPage;
       'api::template.template': ApiTemplateTemplate;
       'api::transaction.transaction': ApiTransactionTransaction;
     }

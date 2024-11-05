@@ -1,13 +1,16 @@
+import { AboutUsResponse } from "../../types/AboutUsPage";
 import { DomainResponse } from "../../types/DomainPage";
 import { FooterResponse } from "../../types/Footer";
 import { NavbarResponse } from "../../types/Header";
-import { RootObject, TemplateData } from "../../types/LandingPage";
+import { TemplateData, LandingPageResponse } from "../../types/LandingPage";
+import { ServiceResponse } from "../../types/ServicePage";
+import { TeamResponse } from "../../types/TeamPage";
 
 export interface StrapiState {
   header: NavbarResponse | null;
   footer: FooterResponse | null;
-  landingPage: RootObject | null;
-  aboutUsPage: null;
+  landingPage: LandingPageResponse | null;
+  aboutUsPage: AboutUsResponse | null;
   contactUsPage: null;
   domainPage: DomainResponse | null;
   faqPage: null;
@@ -15,8 +18,8 @@ export interface StrapiState {
   newsGridPage: null;
   newsDetailsPage: null;
   pricingPage: null;
-  servicesPage: null;
-  teamPage: null;
+  servicesPage: ServiceResponse | null;
+  teamPage: TeamResponse | null;
   templates: {
     data: TemplateData[] | [];
   };

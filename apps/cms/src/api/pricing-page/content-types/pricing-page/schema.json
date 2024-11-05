@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "pricing_pages",
+  "info": {
+    "singularName": "pricing-page",
+    "pluralName": "pricing-pages",
+    "displayName": "Pricing Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "subHeroSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.sub-hero-section",
+      "required": true
+    },
+    "whyChooseUsSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "hosting-page.why-choose-us-section",
+      "required": true
+    },
+    "pricingSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing-page.pricing-section",
+      "required": true
+    },
+    "faqSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing-page.faq-section",
+      "required": true
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import strapiReducer, { fetchDomainPage, fetchFooter, fetchHeader, fetchLandingPage, fetchTemplates } from "./strapi.slice";
+import strapiReducer, { fetchAboutUsPage, fetchDomainPage, fetchFooter, fetchHeader, fetchLandingPage, fetchServicesPage, fetchTeamPage, fetchTemplates } from "./strapi.slice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +10,9 @@ const store = configureStore({
 store.dispatch(fetchHeader());
 store.dispatch(fetchFooter());
 store.dispatch(fetchLandingPage());
+store.dispatch(fetchAboutUsPage());
+store.dispatch(fetchServicesPage());
+store.dispatch(fetchTeamPage());
 store.dispatch(fetchDomainPage());
 store.dispatch(fetchTemplates());
 

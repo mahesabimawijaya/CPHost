@@ -4,7 +4,8 @@
   "info": {
     "singularName": "about-us-page",
     "pluralName": "about-us-pages",
-    "displayName": "About Us Page"
+    "displayName": "About Us Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -32,6 +33,12 @@
       "type": "component",
       "repeatable": false,
       "component": "landing-page.review-section",
+      "required": true
+    },
+    "teamSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "team-page.team-section",
       "required": true
     }
   }

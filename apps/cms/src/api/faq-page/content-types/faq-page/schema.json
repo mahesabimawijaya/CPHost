@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "faq_pages",
+  "info": {
+    "singularName": "faq-page",
+    "pluralName": "faq-pages",
+    "displayName": "Faq Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "subHeroSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.sub-hero-section",
+      "required": true
+    },
+    "faqSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing-page.faq-section"
+    }
+  }
+}

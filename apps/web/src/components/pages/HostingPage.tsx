@@ -6,6 +6,7 @@ import Loading from "../atoms/Loading";
 import Header from "../organisms/Header";
 import RecommendationSection from "../sections/RecommendationSection";
 import ClientFeedbackSection from "../sections/ClientFeedbackSection";
+import Footer from "../organisms/Footer";
 
 const HostingPage = () => {
   const { data, isLoading, error } = useQuery<RootObject>({
@@ -28,6 +29,7 @@ const HostingPage = () => {
       <WhyChooseUsSection whyChooseUs={whyChooseUs as IWhyChooseUsSection} />
       <ClientFeedbackSection feedback={feedback as IClientFeedbackSection} />
       <RecommendationSection recommendation={recommendation as IRecommendationSection} />
+      <Footer />
     </>
   );
 };

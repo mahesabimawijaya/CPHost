@@ -3,7 +3,6 @@
  */
 
 import { Strapi } from "@strapi/strapi";
-import template from "../../template/controllers/template";
 
 const populate = {
   populate: {

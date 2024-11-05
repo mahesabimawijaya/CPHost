@@ -246,7 +246,7 @@ export interface Data {
   attributes: Attributes;
 }
 
-export interface RootObject {
+export interface LandingPageResponse {
   data: Data;
   meta: object;
 }

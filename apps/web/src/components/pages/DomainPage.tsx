@@ -5,6 +5,7 @@ import PopularDomainSection from "../sections/PopularDomainSection";
 import DomainPriceListSection from "../sections/DomainPriceListSection";
 import { useAppSelector } from "../../lib/redux/hooks";
 import { RootState } from "../../lib/redux/store";
+import Footer from "../organisms/Footer";
 
 const DomainPage = () => {
   const { domainPage, error } = useAppSelector((state: RootState) => state.strapi);
@@ -19,6 +20,7 @@ const DomainPage = () => {
       <Header />
       <PopularDomainSection popularDomain={popularDomain as IPopularDomainSection} />
       <DomainPriceListSection />
+      <Footer />
     </>
   );
 };
