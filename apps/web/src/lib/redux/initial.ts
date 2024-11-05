@@ -1,7 +1,7 @@
 import { DomainResponse } from "../../types/DomainPage";
 import { FooterResponse } from "../../types/Footer";
 import { NavbarResponse } from "../../types/Header";
-import { RootObject } from "../../types/LandingPage";
+import { RootObject, TemplateData } from "../../types/LandingPage";
 
 export interface StrapiState {
   header: NavbarResponse | null;
@@ -17,6 +17,9 @@ export interface StrapiState {
   pricingPage: null;
   servicesPage: null;
   teamPage: null;
+  templates: {
+    data: TemplateData[] | [];
+  };
   loading: boolean;
   error: string;
 }
@@ -35,6 +38,9 @@ export const initialState: StrapiState = {
   pricingPage: null,
   servicesPage: null,
   teamPage: null,
+  templates: {
+    data: [],
+  },
   loading: false,
   error: "",
 };

@@ -120,6 +120,10 @@ export interface Plans {
   data: PlanData[];
 }
 
+export interface Plan {
+  data: PlanData;
+}
+
 export interface Period {
   id: number;
   benefit: string;
@@ -142,7 +146,7 @@ export interface BestHosting {
   description: string;
   pricingButton: string;
   image: FeatureImageData;
-  bestHostingBenefits: BestHostingBenefits;
+  bestHostingBenefits: BestHostingBenefits[];
 }
 
 export interface ButtonData {
@@ -186,6 +190,42 @@ export interface BestHostingBenefits {
   benefit: string;
 }
 
+export interface ContactUs {
+  id: number;
+  subtitle: string;
+  title: string;
+  talkToButton: string;
+}
+
+export interface Review {
+  id: number;
+  backgroundImage: FeatureImageData;
+  image: FeatureImageData;
+  reviewCard: IReviewCard[];
+}
+
+export interface IReviewCard {
+  id: number;
+  profession: string;
+  rating: number;
+  reviewText: string;
+  user: string;
+}
+
+export interface Faq {
+  id: number;
+  title: string;
+  subtitle: string;
+  image: FeatureImageData;
+  questionLists: QuestionList[];
+}
+
+export interface QuestionList {
+  id: number;
+  question: string;
+  answer: string;
+}
+
 export interface Attributes {
   createdAt: string;
   updatedAt: string;
@@ -196,6 +236,9 @@ export interface Attributes {
   pricingSection: PlanSection;
   bestHostingSection: BestHosting;
   templateSection: ITemplateSection;
+  contactUsSection: ContactUs;
+  reviewSection: Review;
+  faqSection: Faq;
 }
 
 export interface Data {

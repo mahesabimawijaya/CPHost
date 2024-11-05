@@ -58,13 +58,42 @@ export const fetchDomainPage = async () => {
   }
 };
 
-// export const checkout = async (payload: ) => {
-//   try {
-//     const res = await createData('cms', 'transaction', {
+export type CheckoutParams = {
+  templateId: number;
+  planId: number;
+  amount: number;
+  endDate: Date;
+  invoice: string;
+  domain: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+};
 
-//     })
-//     return res;
-//   } catch (error) {
-//     console.error("error fetching landing page : ", error);
-//   }
-// };
+export const checkout = async ({ templateId, planId, amount, endDate, invoice, domain, firstName, lastName, email }: CheckoutParams): Promise<unknown> => {
+  try {
+    const res = await createData(
+      "cms",
+      "transaction",
+      {
+        data: {
+          templateId,
+          planId,
+          amount,
+          endDate,
+          invoice,
+          domain,
+          user: {
+            firstName,
+            lastName,
+            email,
+          },
+        },
+      },
+      "application/json"
+    );
+    return res;
+  } catch (error) {
+    console.error("error fetching landing page : ", error);
+  }
+};

@@ -67,7 +67,7 @@ const PriceCard = ({ plan, period, i, checkout }: { plan: PlanData; period: stri
           <FaRegCircleQuestion />
         </div>
         {checkout ? (
-          <button className="bg-green-600 flex items-center justify-center gap-3 hover:bg-[#FFA31A] duration-200 text-white py-3 rounded-full font-medium text-lg">Checkout</button>
+          ""
         ) : (
           <Link to={`/checkout/${plan.id}`} className="bg-primary flex items-center justify-center gap-3 hover:bg-[#FFA31A] duration-200 text-white py-3 rounded-full font-medium">
             Get Started Now <FaArrowRightLong />

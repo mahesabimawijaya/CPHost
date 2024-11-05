@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DomainPricing } from "../../types/LandingPage";
 import { useQuery } from "@tanstack/react-query";
 import { fetchDomain } from "../../api/domain.service";
 
-const DomainInput = ({ domains }: { domains: DomainPricing[] }) => {
+const DomainInput = ({ domains, setDomain }: { domains: DomainPricing[]; setDomain?: React.Dispatch<React.SetStateAction<string>> }) => {
   const [currDomain, setCurrDomain] = useState(".com");
   const [isActive, setIsActive] = useState(false);
   const [query, setQuery] = useState("");
@@ -15,9 +15,15 @@ const DomainInput = ({ domains }: { domains: DomainPricing[] }) => {
     }
   };
 
+  useEffect(() => {
+    if (data?.meta.results === 0 && setDomain && !isFetching) {
+      setDomain(query + currDomain);
+    }
+  }, [currDomain, data?.meta.results, setDomain, isFetching]);
+
   return (
     <>
-      <div className="flex items-center w-full h-[24px] bg-white pl-[25px] pr-[5px] py-[35px] rounded-lg">
+      <div className="flex items-center w-full h-[24px] bg-white pl-[25px] pr-[5px] py-[35px] rounded-lg border border-gray-500">
         <input
           type="text"
           onChange={(e) => {
@@ -51,7 +57,11 @@ const DomainInput = ({ domains }: { domains: DomainPricing[] }) => {
             </div>
           )}
         </div>
-        <button onClick={handleSearch} disabled={isFetching} className="bg-[#FFA31A] disabled:opacity-70 w-[200px] py-[16px] font-bold rounded-md text-[18px] hover:bg-[#384BFF] duration-200">
+        <button
+          onClick={handleSearch}
+          disabled={isFetching}
+          className="bg-[#FFA31A] text-white disabled:opacity-70 w-[200px] py-[16px] font-bold rounded-md text-[18px] hover:bg-[#384BFF] duration-200"
+        >
           {isFetching ? "Searching..." : "Search Now"}
         </button>
       </div>
