@@ -39,6 +39,11 @@
       "type": "component",
       "repeatable": false,
       "component": "landing-page.template-section"
+    },
+    "ourNewsSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing-page.our-news-section"
     }
   }
 }

@@ -6,6 +6,7 @@ import strapiReducer, {
   fetchHeader,
   fetchHostingPage,
   fetchLandingPage,
+  fetchNewsGridPage,
 } from "./strapi.slice";
 import { userSlice } from "./user.slice";
 
@@ -22,6 +23,7 @@ store.dispatch(fetchLandingPage());
 store.dispatch(fetchDomainPage());
 store.dispatch(fetchHostingPage());
 store.dispatch(fetchContactUsPage());
+store.dispatch(fetchNewsGridPage());
 
 export default store;
 

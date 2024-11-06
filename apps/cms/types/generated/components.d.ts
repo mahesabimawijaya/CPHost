@@ -1,5 +1,52 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface NewsDetailsPageNewsPost extends Schema.Component {
+  collectionName: 'components_components_news_posts';
+  info: {
+    displayName: 'Post';
+    description: '';
+  };
+  attributes: {
+    writer: Attribute.String & Attribute.Required;
+    date: Attribute.Date & Attribute.Required;
+    category: Attribute.String & Attribute.Required;
+    image: Attribute.Media<'images'> & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    content1: Attribute.Text & Attribute.Required;
+    quote: Attribute.Text & Attribute.Required;
+    content2: Attribute.Text & Attribute.Required;
+    attachment1: Attribute.Media<'images'> & Attribute.Required;
+    attachment2: Attribute.Media<'images'> & Attribute.Required;
+    content3: Attribute.Text & Attribute.Required;
+    tag: Attribute.Component<'components.news-tag', true>;
+  };
+}
+
+export interface NewsDetailsPageNewsComment extends Schema.Component {
+  collectionName: 'components_cards_news_comments';
+  info: {
+    displayName: 'Comment';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+    date: Attribute.DateTime & Attribute.Required;
+    rating: Attribute.Integer & Attribute.Required;
+    comment: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface NewsGridPageNewsGridSection extends Schema.Component {
+  collectionName: 'components_news_grid_page_news_grid_sections';
+  info: {
+    displayName: 'News Grid Section';
+  };
+  attributes: {
+    newsGridCard: Attribute.Component<'cards.news-grid-card', true>;
+  };
+}
+
 export interface TeamPageTeamSection extends Schema.Component {
   collectionName: 'components_team_page_team_sections';
   info: {
@@ -7,6 +54,32 @@ export interface TeamPageTeamSection extends Schema.Component {
   };
   attributes: {
     teamCard: Attribute.Component<'card.team-card', true> & Attribute.Required;
+  };
+}
+
+export interface ListDomainPriceTableHead extends Schema.Component {
+  collectionName: 'components_list_domain_price_table_heads';
+  info: {
+    displayName: 'Domain Price Table Head';
+  };
+  attributes: {
+    head1: Attribute.String & Attribute.Required;
+    head2: Attribute.String & Attribute.Required;
+    head3: Attribute.String & Attribute.Required;
+    head4: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface ListDomainPriceList extends Schema.Component {
+  collectionName: 'components_list_domain_price_lists';
+  info: {
+    displayName: 'Domain Price List';
+  };
+  attributes: {
+    domainLogo: Attribute.Media<'images'> & Attribute.Required;
+    registerFee: Attribute.Decimal & Attribute.Required;
+    transferFee: Attribute.Decimal & Attribute.Required;
+    renewFee: Attribute.Decimal & Attribute.Required;
   };
 }
 
@@ -50,32 +123,6 @@ export interface NavbarLink extends Schema.Component {
     label: Attribute.String & Attribute.Required;
     url: Attribute.String & Attribute.Required;
     subLink: Attribute.Component<'navbar.sub-link', true>;
-  };
-}
-
-export interface ListDomainPriceTableHead extends Schema.Component {
-  collectionName: 'components_list_domain_price_table_heads';
-  info: {
-    displayName: 'Domain Price Table Head';
-  };
-  attributes: {
-    head1: Attribute.String & Attribute.Required;
-    head2: Attribute.String & Attribute.Required;
-    head3: Attribute.String & Attribute.Required;
-    head4: Attribute.String & Attribute.Required;
-  };
-}
-
-export interface ListDomainPriceList extends Schema.Component {
-  collectionName: 'components_list_domain_price_lists';
-  info: {
-    displayName: 'Domain Price List';
-  };
-  attributes: {
-    domainLogo: Attribute.Media<'images'> & Attribute.Required;
-    registerFee: Attribute.Decimal & Attribute.Required;
-    transferFee: Attribute.Decimal & Attribute.Required;
-    renewFee: Attribute.Decimal & Attribute.Required;
   };
 }
 
@@ -344,6 +391,27 @@ export interface ContactUsPageContactUsFormSection extends Schema.Component {
   };
 }
 
+export interface ComponentsNewsTag extends Schema.Component {
+  collectionName: 'components_components_news_tags';
+  info: {
+    displayName: 'News Tag';
+  };
+  attributes: {
+    tag: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface ComponentsNewsCategories extends Schema.Component {
+  collectionName: 'components_components_news_categories';
+  info: {
+    displayName: 'News Categories';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    number: Attribute.Integer & Attribute.Required;
+  };
+}
+
 export interface ComponentsFeature extends Schema.Component {
   collectionName: 'components_components_features';
   info: {
@@ -504,12 +572,15 @@ export interface CardReviewCard extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'news-details-page.news-post': NewsDetailsPageNewsPost;
+      'news-details-page.news-comment': NewsDetailsPageNewsComment;
+      'news-grid-page.news-grid-section': NewsGridPageNewsGridSection;
       'team-page.team-section': TeamPageTeamSection;
+      'list.domain-price-table-head': ListDomainPriceTableHead;
+      'list.domain-price-list': ListDomainPriceList;
       'navbar.top-bar': NavbarTopBar;
       'navbar.sub-link': NavbarSubLink;
       'navbar.link': NavbarLink;
-      'list.domain-price-table-head': ListDomainPriceTableHead;
-      'list.domain-price-list': ListDomainPriceList;
       'landing-page.template-section': LandingPageTemplateSection;
       'landing-page.service-section': LandingPageServiceSection;
       'landing-page.review-section': LandingPageReviewSection;
@@ -529,6 +600,8 @@ declare module '@strapi/types' {
       'domain-page.domain-list-section': DomainPageDomainListSection;
       'contact-us-page.our-support-section': ContactUsPageOurSupportSection;
       'contact-us-page.contact-us-form-section': ContactUsPageContactUsFormSection;
+      'components.news-tag': ComponentsNewsTag;
+      'components.news-categories': ComponentsNewsCategories;
       'components.feature': ComponentsFeature;
       'components.enumerated-list': ComponentsEnumeratedList;
       'components.domain-pricing': ComponentsDomainPricing;

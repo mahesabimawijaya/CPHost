@@ -1,0 +1,71 @@
+{
+  "collectionName": "components_components_news_posts",
+  "info": {
+    "displayName": "Post",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "writer": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "category": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content1": {
+      "type": "text",
+      "required": true
+    },
+    "quote": {
+      "type": "text",
+      "required": true
+    },
+    "content2": {
+      "type": "text",
+      "required": true
+    },
+    "attachment1": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "attachment2": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "content3": {
+      "type": "text",
+      "required": true
+    },
+    "tag": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.news-tag"
+    }
+  }
+}

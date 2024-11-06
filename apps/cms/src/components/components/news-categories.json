@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_components_news_categories",
+  "info": {
+    "displayName": "News Categories"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "number": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

@@ -30,6 +30,13 @@ const populate = {
         },
       },
     },
+    ourNewsSection: {
+      populate: {
+        newsGridCard: {
+          populate: "*",
+        },
+      },
+    },
   },
 };
 

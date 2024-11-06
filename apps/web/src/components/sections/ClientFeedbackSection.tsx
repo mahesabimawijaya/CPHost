@@ -1,4 +1,5 @@
 import { IClientFeedbackSection } from "../../types/HostingPage";
+import { baseImageUrl } from "../../utils/helper";
 import SectionSubTitle from "../atoms/SectionSubTitle";
 import SectionTitle from "../atoms/SectionTitle";
 import ClientFeedbackCard from "../molecules/ClientFeedbackCard";
@@ -8,8 +9,6 @@ interface Props {
 }
 
 const ClientFeedbackSection: React.FC<Props> = ({ feedback }) => {
-  const baseImageUrl = import.meta.env.VITE_BASE_CMS_IMAGE_URL;
-
   return (
     <section className="flex flex-col items-center gap-16 w-screen mx-auto py-20 bg-third">
       {/* TITLE */}

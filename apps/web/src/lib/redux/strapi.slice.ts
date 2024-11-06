@@ -70,6 +70,18 @@ export const fetchContactUsPage = createAsyncThunk(
   }
 );
 
+export const fetchNewsGridPage = createAsyncThunk(
+  "strapi/fetchNewsGridPage",
+  async () => {
+    try {
+      const res = await fetchData("cms", "news-grid-page");
+      return res;
+    } catch (error) {
+      console.error("error fetching contact us page: ", error);
+    }
+  }
+);
+
 export const strapiSlice = createSlice({
   name: "strapi",
   initialState,
@@ -139,6 +151,17 @@ export const strapiSlice = createSlice({
         state.contactUsPage = action.payload;
       })
       .addCase(fetchContactUsPage.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
+      })
+      .addCase(fetchNewsGridPage.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchNewsGridPage.fulfilled, (state, action) => {
+        state.loading = false;
+        state.newsGridPage = action.payload;
+      })
+      .addCase(fetchNewsGridPage.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as string;
       });

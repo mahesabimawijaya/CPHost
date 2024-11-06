@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "news_details_pages",
+  "info": {
+    "singularName": "news-details-page",
+    "pluralName": "news-details-pages",
+    "displayName": "News Details Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

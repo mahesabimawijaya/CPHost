@@ -1,0 +1,27 @@
+import NewsCategories from "../molecules/NewsCategories";
+import NewsPost from "../molecules/NewsPost";
+import NewsSearch from "../molecules/NewsSearch";
+import NewsTags from "../molecules/NewsTags";
+import RecentPost from "../organisms/RecentPost";
+
+const NewsDetailSection = () => {
+  return (
+    <section className="flex flex-row gap-6 justify-center">
+      <div>
+        <NewsPost />
+        <div>comments</div>
+        <div>form comment</div>
+      </div>
+      <div className="flex flex-col gap-6">
+        <NewsSearch />
+
+        <NewsCategories />
+
+        <RecentPost />
+        <NewsTags />
+      </div>
+    </section>
+  );
+};
+
+export default NewsDetailSection;

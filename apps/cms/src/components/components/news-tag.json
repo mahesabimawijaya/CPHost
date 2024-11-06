@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_components_news_tags",
+  "info": {
+    "displayName": "News Tag"
+  },
+  "options": {},
+  "attributes": {
+    "tag": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

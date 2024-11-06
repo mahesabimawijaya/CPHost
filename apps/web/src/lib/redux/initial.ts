@@ -4,6 +4,7 @@ import { FooterResponse } from "../../types/Footer";
 import { NavbarResponse } from "../../types/Header";
 import { HostingResponse } from "../../types/HostingPage";
 import { RootObject } from "../../types/LandingPage";
+import { NewsGridResponse } from "../../types/NewsGridPage";
 
 export interface StrapiState {
   header: NavbarResponse | null;
@@ -14,7 +15,7 @@ export interface StrapiState {
   domainPage: DomainResponse | null;
   faqPage: null;
   hostingPage: HostingResponse | null;
-  newsGridPage: null;
+  newsGridPage: NewsGridResponse | null;
   newsDetailsPage: null;
   pricingPage: null;
   servicesPage: null;

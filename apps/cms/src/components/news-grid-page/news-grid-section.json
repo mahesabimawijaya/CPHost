@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_news_grid_page_news_grid_sections",
+  "info": {
+    "displayName": "News Grid Section"
+  },
+  "options": {},
+  "attributes": {
+    "newsGridCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.news-grid-card"
+    }
+  }
+}

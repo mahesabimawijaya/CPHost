@@ -4,16 +4,17 @@
   "info": {
     "singularName": "news-grid-page",
     "pluralName": "news-grid-pages",
-    "displayName": "News Grid Page"
+    "displayName": "News Grid Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "newsGridCard": {
+    "newsGridSection": {
       "type": "component",
-      "repeatable": true,
-      "component": "cards.news-grid-card"
+      "repeatable": false,
+      "component": "news-grid-page.news-grid-section"
     }
   }
 }

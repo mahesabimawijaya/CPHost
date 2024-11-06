@@ -746,6 +746,7 @@ export interface ApiLandingPageLandingPage extends Schema.SingleType {
     pricingSection: Attribute.Component<'landing-page.pricing-section'> &
       Attribute.Required;
     templateSection: Attribute.Component<'landing-page.template-section'>;
+    ourNewsSection: Attribute.Component<'landing-page.our-news-section'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -800,18 +801,49 @@ export interface ApiNavbarNavbar extends Schema.SingleType {
   };
 }
 
+export interface ApiNewsDetailsPageNewsDetailsPage extends Schema.SingleType {
+  collectionName: 'news_details_pages';
+  info: {
+    singularName: 'news-details-page';
+    pluralName: 'news-details-pages';
+    displayName: 'News Details Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::news-details-page.news-details-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::news-details-page.news-details-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNewsGridPageNewsGridPage extends Schema.SingleType {
   collectionName: 'news_grid_pages';
   info: {
     singularName: 'news-grid-page';
     pluralName: 'news-grid-pages';
     displayName: 'News Grid Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    newsGridCard: Attribute.Component<'cards.news-grid-card', true>;
+    newsGridSection: Attribute.Component<'news-grid-page.news-grid-section'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -978,6 +1010,7 @@ declare module '@strapi/types' {
       'api::hosting-page.hosting-page': ApiHostingPageHostingPage;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::navbar.navbar': ApiNavbarNavbar;
+      'api::news-details-page.news-details-page': ApiNewsDetailsPageNewsDetailsPage;
       'api::news-grid-page.news-grid-page': ApiNewsGridPageNewsGridPage;
       'api::plan.plan': ApiPlanPlan;
       'api::template.template': ApiTemplateTemplate;

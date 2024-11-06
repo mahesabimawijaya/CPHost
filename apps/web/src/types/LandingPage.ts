@@ -180,6 +180,26 @@ export interface Attributes {
   aboutUsSection: AboutUsSection;
   pricingSection: PlanSection;
   templateSection: ITemplateSection;
+  ourNewsSection: IOurNewsSection;
+}
+
+export interface IOurNewsSection {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  newsGridCard: NewsGridCard[];
+}
+
+export interface NewsGridCard {
+  id: number;
+  image: ImageData;
+  category: string;
+  date: string;
+  title: string;
+  writerName: string;
+  writerPos: string;
+  writerImage: ImageData;
 }
 
 export interface Data {
