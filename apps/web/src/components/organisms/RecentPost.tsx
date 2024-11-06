@@ -1,4 +1,3 @@
-import React from "react";
 import RecentPostCard from "../molecules/RecentPostCard";
 
 const RecentPost = () => {

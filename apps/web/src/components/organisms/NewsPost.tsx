@@ -1,12 +1,11 @@
-import React from "react";
 import { BiTag } from "react-icons/bi";
-import { BsCalendarFill, BsQuote } from "react-icons/bs";
+import { BsCalendarFill } from "react-icons/bs";
 import { FaQuoteRight } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 
 const NewsPost = () => {
   return (
-    <div className="w-[850px]">
+    <div className="w-[850px] leading-relaxed">
       {/* POST THUMBNAIL */}
       <div className="w-[850px] h-[400px]">
         <img
@@ -41,7 +40,7 @@ const NewsPost = () => {
       </div>
 
       {/* POST CONTENT */}
-      <div className="border-b border-secondary py-4 w-">
+      <div className="border-b border-secondary my-4">
         <h1 className="font-bold py-2 text-3xl">Title</h1>
         <p className="py-2 text-gray-600">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi iste
@@ -56,7 +55,7 @@ const NewsPost = () => {
         </p>
 
         {/* QUOTE SECTION */}
-        <div className="flex justify-between bg-third p-6 my-2 border-l-4 border-primary font-semibold text-black italic">
+        <div className="flex justify-between bg-third p-8 my-4 border-l-4 border-primary font-semibold text-black italic">
           <p className="w-[700px]">
             sed enim explicabo. Veritatis quos natus sunt reprehenderit?
             Incidunt dolorem iusto temporibus impedit nam totam perferendis quis
@@ -69,7 +68,7 @@ const NewsPost = () => {
         </div>
 
         {/* CONTENT 2 */}
-        <p className="py-2 text-gray-600">
+        <p className=" text-gray-600 my-4 py-2">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi iste
           porro id expedita voluptatibus quis similique nemo facere! Enim vitae
           accusamus officiis eaque. Ex ducimus tempora excepturi voluptatibus
@@ -81,13 +80,25 @@ const NewsPost = () => {
         </p>
 
         {/* IMAGE SECTION */}
-        <div>
-          <img src="" alt="" />
-          <img src="" alt="" />
+        <div className="flex justify-between gap-2 py-2 my-4">
+          <div>
+            <img
+              src="https://ex-coders.com/html/cphost/assets/img/news/post-5.jpg"
+              alt=""
+              className=""
+            />
+          </div>
+          <div>
+            <img
+              src="https://ex-coders.com/html/cphost/assets/img/news/post-5.jpg"
+              alt=""
+              className=""
+            />
+          </div>
         </div>
 
         {/* CONTENT 3 */}
-        <p className="py-2 text-gray-600">
+        <p className="py-2 text-gray-600 my-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi iste
           porro id expedita voluptatibus quis similique nemo facere! Enim vitae
           accusamus officiis eaque. Ex ducimus tempora excepturi voluptatibus
@@ -97,10 +108,10 @@ const NewsPost = () => {
       </div>
 
       {/* POST TAG */}
-      <div className="flex flex-row gap-4 items-center py-3 border-b border-secondary">
+      <div className="flex flex-row gap-4 items-center border-b border-secondary pb-4">
         <h1 className="font-semibold">Tags:</h1>
 
-        <h2 className="bg-third px-3 py-2 font-semibold">Reseller</h2>
+        <h2 className="bg-third px-6 py-2 font-semibold">Reseller</h2>
       </div>
     </div>
   );

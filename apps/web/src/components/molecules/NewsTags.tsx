@@ -1,5 +1,3 @@
-import React from "react";
-
 const NewsTags = () => {
   return (
     <div className="bg-third p-6 w-[350px] flex flex-col gap-4">
